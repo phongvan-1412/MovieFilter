@@ -1,0 +1,212 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var years = (List<Int64>)ViewData["lstYear"];
+    //var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
+    //var movies = (List<MovieFilterSp.Models.movie>)ViewData["lstMovies"];
+
+}
+
+<section class="hero mb-5">
+    <div class="container">
+        <div>
+            <div class="hero__items set-bg">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <img src="~/img/hero/42_Salvation_4k.jpg" style="border-radius: 5px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product spad bg-dark" style="list-style-type: none">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5">
+                <div class="search__product">
+                    <div class="row mb-3">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <input style="width: 300px; height: 30px; padding-right: 15px; font-size: 10px; background: white; border-radius: 10px"
+                                   placeholder="Search"
+                                   name="searchProduct" />
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex col-lg-8 col-md-8 col-sm-8">
+                            <div class="search__year me-5">
+                                <label class="form-label text-white me-2">Year</label>
+                                <select name="mov_year" class="form-select" style="width: 100px">
+                                    @foreach (var item in years as List<Int64>)
+                                    {
+                                        <option>@item</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="search__genre me-5">
+                                <label class="form-label text-white me-2">Genre</label>
+                                <select name="mov_gen" class="form-select" style="width: 150px;">
+                                    @*@foreach (var item in genres as List<WebApplicationMVC.Models.genre>)
+                                    {
+                                        <option>@item.gen_title</option>
+                                    }*@
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="trending__product">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <div class="text-primary">
+                                <h3 class="text-primary">Trending Now</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div style="text-align: right">
+                                <a href="#" class="primary-btn">View All <span>-></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex col-lg-4 col-md-6 col-sm-6 mb-3">
+                            @*@foreach (var item in movies)
+                            {
+                                <div class="d-block me-5">
+                                    <form action="Detail" method="get">
+                                        <div class="product__item__pic set-bg mb-2" data-setbg="~/img/trending/trend-1.jpg">
+                                            <img src="~/img/trending/trend-1.jpg" style="height: 325px; position: relative; border-radius: 5px;" />
+                                        </div>
+                                    </form>
+                                    <div class="product__item__text">
+                                        <ul class="d-flex">
+                                            @foreach (var i in item.movie_genres)
+                                            {
+                                                <li class="me-3">
+                                                    @{
+                                                        var service = new MovieFilterSp.Service.ServiceClient();
+                                                        var genre = service.GetGenreById(i.gen_id);
+                                                    }@genre.gen_title
+                                                </li>
+                                            }
+                                        </ul>
+                                        <form action="Movie/Detail" method="get">
+                                            <input name="movId" value="@item.mov_id" hidden />
+                                            <button type="submit" class="text-white p-0" style="background: transparent; border: none">
+                                                <h5 style="font-size: 18px">@item.mov_title</h5>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            }*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="product__sidebar mb-5">
+                    <div class="product__sidebar__view">
+                        <div class="text-primary mb-2">
+                            <h4 class="text-primary">Top Views</h4>
+                        </div>
+                        <div class="filter__gallery">
+                            <div class="product__sidebar__view__item set-bg mix day years mb-5"
+                                 data-setbg="~/img/sidebar/tv-1.jpg">
+                                <img src="~/img/sidebar/tv-1.jpg" />
+                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg mix month week mb-5"
+                                 data-setbg="~/img/sidebar/tv-2.jpg">
+                                <img src="~/img/sidebar/tv-2.jpg" />
+                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg mix week years mb-5"
+                                 data-setbg="~/img/sidebar/tv-3.jpg">
+                                <img src="~/img/sidebar/tv-3.jpg" />
+                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg mix years month mb-5"
+                                 data-setbg="~/img/sidebar/tv-4.jpg">
+                                <img src="~/img/sidebar/tv-4.jpg" />
+                                <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg mix day mb-5"
+                                 data-setbg="~/img/sidebar/tv-5.jpg">
+                                <img src="~/img/sidebar/tv-5.jpg" />
+                                <h5><a href="#">Fate stay night unlimited blade works</a></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__sidebar__comment">
+                        <div class="text-primary mb-2">
+                            <h4 class="text-primary">New Comment</h4>
+                        </div>
+                        <div class="d-flex">
+                            <div class="product__sidebar__comment__item__pic mb-2 me-3">
+                                <img src="~/img/sidebar/comment-1.jpg" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul class="d-flex">
+                                    <li class="me-3">Active</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="product__sidebar__comment__item__pic mb-2 me-3">
+                                <img src="~/img/sidebar/comment-2.jpg" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul class="d-flex">
+                                    <li class="me-3">Active</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">Shirogane Tamashii hen Kouhan sen</a></h5>
+                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="product__sidebar__comment__item__pic mb-2 me-3">
+                                <img src="~/img/sidebar/comment-3.jpg" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul class="d-flex">
+                                    <li class="me-3">Active</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
+                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="product__sidebar__comment__item__pic mb-2 me-3">
+                                <img src="~/img/sidebar/comment-4.jpg" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul class="d-flex">
+                                    <li class="me-3">Active</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">Monogatari Series: Second Season</a></h5>
+                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->

@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumb-option mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="./index.html"><i class="fa fa-home"></i> Home > </a>
+                    <span class="text-muted">
+                        @*@foreach (var i in Model.movie_genres)
+                        {
+                            var service = new WebApplicationMVC.Service.ServiceClient();
+                            var lstGenres = service.GetGenreById(i.gen_id);
+                            <span>
+                                @lstGenres.gen_title,
+                            </span>
+                        }*@
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="anime-details spad">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div>
+                        <img src="~/img/anime/details-pic.jpg" />
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            @*<h3>@Model.mov_title</h3>*@
+                        </div>
+                        <div class="anime__details__rating mb-3">
+                            <div class="rating">
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star-half-o"></i></a>
+                            </div>
+                        </div>
+                        <p>
+                            Every human inhabiting the world of Alcia is branded by a “Count” or a number written on
+                            their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
+                            never to be seen again. But her mother’s last words send Hina on a quest to find a
+                            legendary hero from the Waste War - the fabled Ace!
+                        </p>
+                        <div class="anime__details__widget">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span class="text-primary">Type:</span> TV Series</li>
+                                        <li><span class="text-primary">Studios:</span> Lerche</li>
+                                        <li><span class="text-primary">Date aired:</span> Oct 02, 2019 to ?</li>
+                                        <li><span class="text-primary">Status:</span> Airing</li>
+                                        <li>
+                                            <span class="text-primary">Genre:</span>
+                                            @*@foreach (var i in Model.movie_genres)
+                                            {
+                                                var service = new WebApplicationMVC.Service.ServiceClient();
+                                                var lstGenres = service.GetGenreById(i.gen_id);
+                                                <span>
+                                                    @lstGenres.gen_title,
+                                                </span>
+                                            }*@
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span class="text-primary">Scores:</span> 7.31 / 1,515</li>
+                                        <li><span class="text-primary">Rating:</span> 8.5 / 161 times</li>
+                                        @*<li><span class="text-primary">Duration:</span> @Model.mov_time min</li>*@
+                                        <li><span class="text-primary">Quality:</span> HD</li>
+                                        <li><span class="text-primary">Views:</span> 131,541</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="rateContainer" class="d-flex" style="height: 15px;">
+                            <span class="text-primary me-3">Rate: </span>
+
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                <i class="bi bi-star me-1" id="rateStar" style="cursor: pointer"></i>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("rateStar").addEventListener("mouseenter", function () {
+        var container = document.getElementById("rateContainer");
+
+    });
+</script>
