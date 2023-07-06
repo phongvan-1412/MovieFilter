@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MovieFilter", "MovieFilter\", "{1709084C-7440-43A2-BBF4-5C40C7F30668}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63659"
+		Debug.AspNetCompiler.PhysicalPath = "MovieFilter\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63659\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63659"
+		Release.AspNetCompiler.PhysicalPath = "MovieFilter\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63659\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63659"
+		SlnRelativePath = "MovieFilter\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFilterSp", "MovieFilterSp\MovieFilterSp.csproj", "{E3BF6E02-5E47-4BE1-9C9C-2F73A1C3A2BC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1709084C-7440-43A2-BBF4-5C40C7F30668} = {1709084C-7440-43A2-BBF4-5C40C7F30668}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1709084C-7440-43A2-BBF4-5C40C7F30668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1709084C-7440-43A2-BBF4-5C40C7F30668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1709084C-7440-43A2-BBF4-5C40C7F30668}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1709084C-7440-43A2-BBF4-5C40C7F30668}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E3BF6E02-5E47-4BE1-9C9C-2F73A1C3A2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3BF6E02-5E47-4BE1-9C9C-2F73A1C3A2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3BF6E02-5E47-4BE1-9C9C-2F73A1C3A2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3BF6E02-5E47-4BE1-9C9C-2F73A1C3A2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9A8E2E7-C8F9-4E88-B6A2-F1B8ED808D92}
+	EndGlobalSection
+EndGlobal
