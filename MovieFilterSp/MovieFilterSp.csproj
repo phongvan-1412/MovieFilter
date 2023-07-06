@@ -124,6 +124,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ActorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DirectorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GenreController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReviewerController.cs" />
     <Compile Include="Connected Services\MovieService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +164,22 @@
     <Content Include="Areas\Admin\Views\Actor\Read.cshtml" />
     <Content Include="Areas\Admin\Views\Actor\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Actor\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Director\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Director\Read.cshtml" />
+    <Content Include="Areas\Admin\Views\Director\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Genre\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Genre\Read.cshtml" />
+    <Content Include="Areas\Admin\Views\Genre\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\RatingDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Read.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\UpdateActor.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\UpdateDirector.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\UpdateGenre.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\UpdateRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Reviewer\Read.cshtml" />
     <None Include="Connected Services\MovieService\Service.disco" />
     <None Include="Connected Services\MovieService\configuration91.svcinfo" />
     <None Include="Connected Services\MovieService\configuration.svcinfo" />

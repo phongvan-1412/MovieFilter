@@ -1,0 +1,132 @@
+﻿@model MovieFilterSp.Models.movie
+@{
+    string rating = Model.mov_title.Replace(" ", "") + Model.mov_id.ToString();
+}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#@rating">
+    Detail
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="@rating" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">Rating Detail</h5>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-row mb-5">
+                    <div class="me-3">
+                        <label class="fw-bold me-3" style="color: black">Sort</label>
+                        <select id="selSort" class="form-select" style="width: 100px;">
+                            <option>Sort</option>
+                            <option value="5">Ascending</option>
+                            <option value="6">Descending</option>
+                        </select>
+                    </div>
+
+                    <div class="me-3">
+                        <label class="fw-bold me-3" style="color: black">By</label>
+                        <select id="selBy" class="form-select" style="width: 100px;">
+                            <option>By</option>
+                            <option value="13">Name</option>
+                            <option value="14">Stars</option>
+                        </select>
+                    </div>
+
+                    <button id="btnRatingSearch" type="button" class="btn btn-primary text-white me-3" onclick="submitSearch(@Model.mov_id)">Search</button>
+                </div>
+
+                <table class="table">
+                    <thead class="table-primary">
+                        <tr>
+                            <th class="align-middle p-2">Index</th>
+                            <th class="align-middle p-2">Reviewer</th>
+                            <th class="align-middle p-2">Stars Rated</th>
+                            <th class="align-middle p-2">Rating</th>
+                            <th class="align-middle p-2">Viewing</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ratingTable">
+                        @*@foreach (var item in Model.ratings as List<MovieFilterSp.Models.rating>)
+                        {
+                            <tr>
+                                <td>
+                                    @{
+                                        var index = Model.ratings.IndexOf(item) + 1;
+                                    }@index
+                                </td>
+                                <td>
+                                    @item.reviewer.rev_name
+                                </td>
+                                <td>@item.rev_stars</td>
+                                <td>@item.num_o_rating</td>
+                                <td>@item.num_o_viewing</td>
+                            </tr>
+                        }*@
+                        <tr>
+                            <td colspan="3" style="float: right;">
+                                @{
+                                    var starTotal = Model.ratings.Sum(r => r.rev_stars);
+                                }Total: @starTotal
+                            </td>
+                            <td>
+                                @{
+                                    var rateTotal = Model.ratings.Sum(r => r.num_o_rating);
+                                }Total: @rateTotal
+                            </td>
+                            <td>
+                                @{
+                                    var viewTotal = Model.ratings.Sum(r => r.num_o_viewing);
+                                }Total: @viewTotal
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function submitSearch(movie) {
+        $.ajax({
+            type: "POST",
+            data: { sort: document.getElementById('selSort').value, by: document.getElementById('selBy').value, movie: movie },
+            dataType: "json",
+            url: "/Admin/Movie/Sort",
+            success: function (result) {
+                console.log(result);
+
+                let out = "";
+
+                result.forEach(myFunction)
+                function myFunction(item, index) {
+                    var row =
+                        `<tr>
+                                <td>
+                                    ${index + 1}
+                                </td>
+                                <td>
+                                    ${item.reviewer.rev_name}
+                                </td>
+                                <td>${item.rev_stars}</td>
+                                <td>${item.num_o_rating}</td>
+                                <td>${item.num_o_viewing}</td>
+                            </tr>`;
+
+                    out += row;
+                }
+
+                let table = document.getElementById('ratingTable');
+                table.innerHTML = out;
+
+            },
+            error: function (req, status, error) {
+                console.log(error);
+            }
+        });
+    };
+</script>

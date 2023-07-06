@@ -1,0 +1,54 @@
+﻿@{
+    var popUp = "UpdateDirector";
+}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-primary text-white" data-bs-toggle="modal" data-bs-target="#@popUp">
+    Update
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="@popUp" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Director</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/Admin/Movie/UpdateGenre" method="post">
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">First Name</label>
+                        @*<input name="act_id" value="@Model.act_id" hidden />
+                            <input name="act_fname" value="@Model.act_fname" class="form-control" />*@
+                        <span asp-validation-for="act_fname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-dark">
+                        <label class="form-label">Last Name</label>
+                        @*<input name="act_lname" value="@Model.act_lname" class="form-control" />*@
+                        <span asp-validation-for="act_lname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-dark">
+                        <label class="form-label">Gender</label>
+                        <select name="act_gender" class="form-control">
+                            <option value="0">
+                                @*@{
+                                        var result = RESTFULDemo.Utils.ConvertEnumStatus.ConvertToString(Model.act_gender);
+                                    }@result*@
+                            </option>
+                            <option value="1">Female</option>
+                            <option value="2">Male</option>
+                        </select>
+                        <span asp-validation-for="act_fname" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

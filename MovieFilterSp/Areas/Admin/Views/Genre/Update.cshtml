@@ -1,0 +1,36 @@
+﻿@model MovieFilterSp.Models.genre
+@{
+    var genName = Model.gen_title.Replace(" ", "") + Model.gen_id;
+}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#@genName">
+    Update
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="@genName" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Genre</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/Admin/Genre/Update" method="post">
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Title</label>
+                        <input name="gen_id" value="@Model.gen_id" hidden />
+                        <input name="gen_title" value="@Model.gen_title" class="form-control" />
+                        <span asp-validation-for="act_fname" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

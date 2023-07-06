@@ -1,0 +1,223 @@
+﻿@model MovieFilterSp.Models.movie
+@{
+    var countries = (List<MovieFilterSp.Models.country>)ViewData["lstCountries"];
+    var languages = (List<MovieFilterSp.Models.language>)ViewData["lstLanguages"];
+    //var hours = (List<int>)ViewData["lstHour"];
+    //var minutes = (List<Int64>)ViewData["lstMinute"];
+    //var actors = (List<WebApplicationMVC.Models.actor>)ViewData["lstActors"];
+    //var directors = (List<WebApplicationMVC.Models.director>)ViewData["lstDirectors"];
+    //var genres = (List<WebApplicationMVC.Models.genre>)ViewData["lstGenres"];
+
+}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMovie" id="btnCreateMovie">
+    Create
+</button>
+
+<!-- Modal -->
+<div class="modal modal-lg fade" id="createMovie" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Movie</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/Admin/Movie/Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group d-flex mb-3">
+                        <div style="margin-right: 40px">
+                            <label class="fw-bold">Title</label>
+                            <input name="mov_title" class="form-control" style="width: 250px" />
+                            <span asp-validation-for="mov_title" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            <div>
+                                <label class="fw-bold">Duration</label>
+                            </div>
+
+                            <div class="d-flex align-items-start">
+                                <div class="d-flex align-items-center me-5">
+                                    <select name="hr" class="form-control me-2">
+                                        <option value="0">0</option>
+                                        @*@foreach (var item in hours as List<int>)
+                                        {
+                                            <option>@item</option>
+                                        }*@
+                                    </select>
+                                    <label class="form-label">hours</label>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <select name="min" class="form-control me-2">
+                                        @*@foreach (var item in minutes as List<Int64>)
+                                        {
+                                            <option>@item</option>
+                                        }*@
+                                    </select>
+                                    <label class="form-label">minutes</label>
+                                </div>
+                            </div>
+
+                            <span asp-validation-for="mov_time" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex mb-3">
+                        <label class="fw-bold">Released Date</label>
+                        <input type="date" name="mov_dt_rel" class="form-control" style="width: 250px" />
+                        <span asp-validation-for="mov_dt_rel" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group d-flex mb-3">
+                        <div style="margin-right: 40px">
+                            <label class="fw-bold me-3">Language</label>
+                            <select id="selLanguage" name="mov_lang" placeholder="Select Language" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
+                                @foreach (var item in languages as List<MovieFilterSp.Models.language>)
+                                {
+                                    <option>@item.name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="mov_lang" class="text-danger"></span>
+                        </div>
+
+                        <div>
+                            <label class="fw-bold me-3">Country</label>
+                            <select id="selCountries" name="mov_rel_country" multiple placeholder="Select Countries" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
+                                @foreach (var item in countries as List<MovieFilterSp.Models.country>)
+                                {
+                                    <option>@item.name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="mov_rel_country" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group d-flex mb-3">
+                        <div style="margin-right: 20px">
+                            <label class="fw-bold me-3">Directors</label>
+                            <select id="selDirectors" name="lstDirectors" multiple placeholder="Select Directors" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
+                                @*@foreach (var item in directors as List<WebApplicationMVC.Models.director>)
+                                {
+                                    <option>@item.dir_fullname</option>
+                                }*@
+                            </select>
+                            <span asp-validation-for="mov_lang" class="text-danger"></span>
+                        </div>
+
+                        <div>
+                            <label class="fw-bold me-3">Genre</label>
+                            <select id="selGenres" name="lstGenres" multiple placeholder="Select Genre" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
+                                @*@foreach (var item in genres as List<WebApplicationMVC.Models.genre>)
+                                {
+                                    <option>@item.gen_title</option>
+                                }*@
+                            </select>
+                            <span asp-validation-for="mov_lang" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <hr style="margin-top: 20px; margin-bottom: 20px" />
+
+                    <div class="form-group d-flex mb-3">
+                        <div style="margin-right: 40px">
+                            <label class="fw-bold me-3">Actors</label>
+                            <select id="actor" name="actor" class="form-select" placeholder="Select Actor" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
+                                @*@foreach (var item in actors as List<WebApplicationMVC.Models.actor>)
+                                {
+                                    <option>@item.act_fullname</option>
+                                }*@
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="fw-bold me-3">Role</label>
+                            <input id="role" name="role" class="form-control" style="width: 250px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <button id="btnAddMovCast" type="button" class="btn btn-primary">Add</button>
+                    </div>
+
+
+                    <div class="form-group mb-3">
+                        <table class="table">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th class="align-middle p-2">Actor</th>
+                                    <th class="align-middle p-2">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mov_cast">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <input name="lstMovCast" id="lstMovCast" hidden />
+
+                    <div class="d-flex justify-content-between form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link href="~/Content/virtual-select.min.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Scripts/virtual-select.min.js"></script>
+<script type="text/javascript">
+    VirtualSelect.init({
+        ele: '#selCountries'
+    });
+
+    VirtualSelect.init({
+        ele: '#selLanguage'
+    });
+
+    //VirtualSelect.init({
+    //    ele: '#selDirectors'
+    //});
+
+    //VirtualSelect.init({
+    //    ele: '#selGenres'
+    //});
+
+    document.getElementById("btnCreateMovie").addEventListener("click", function () {
+        localStorage.removeItem("listMovCast");
+    });
+
+    document.getElementById("btnAddMovCast").addEventListener("click", function () {
+        var act_name = document.getElementById("actor").value;
+        var role_name = document.getElementById("role").value;
+        var movCast = { act_name, role_name };
+        var lstMovCast = [];
+        if (localStorage.getItem("listMovCast") != null) {
+            lstMovCast = JSON.parse(localStorage.getItem("listMovCast"));
+        }
+        lstMovCast.push(movCast);
+        var json = JSON.stringify(lstMovCast);
+        localStorage.setItem("listMovCast", json);
+        document.getElementById("lstMovCast").value = json;
+
+
+        let out = "";
+        lstMovCast.forEach(myFunction)
+        function myFunction(item, index) {
+            var row = `
+                    <tr>
+                        <td class="align-middle p-2">${item.act_name}</td>
+                        <td class="align-middle p-2">${item.role_name}</td>
+                    </tr>`;
+
+            out += row;
+        }
+        let table = document.getElementById('mov_cast');
+        table.innerHTML = out;
+    });
+
+</script>

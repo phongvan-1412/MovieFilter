@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Read";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    MovieFilterSp.Models.director director = new MovieFilterSp.Models.director();
+}
+
+<h2>List of Directors</h2>
+<div class="row mt-5">
+    <div class="col-md-10 offset-1">
+        @if (TempData["successCreate"] != null)
+        {
+            <div class="form-group alert alert-success mb-3">
+                <strong>@TempData["successCreate"]</strong>
+            </div>
+        }
+
+        @if (TempData["successUpdate"] != null)
+        {
+            <div class="form-group alert alert-success mb-3">
+                <strong>@TempData["successUpdate"]</strong>
+            </div>
+        }
+        <table class="table">
+            <thead class="table-primary">
+                <tr>
+                    <th class="align-middle p-2">Index</th>
+                    <th class="align-middle p-2">First Name</th>
+                    <th class="align-middle p-2">Last Name</th>
+                    <th class="align-middle p-2">Action</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-white">
+                @foreach (var item in Model as List<MovieFilterSp.Models.director>)
+                {
+                    <tr>
+                        <td class="align-middle p-2" style="margin-right: 1rem">
+                            @{
+                                var index = Model.IndexOf(item) + 1;
+                            }@index
+                        </td>
+                        <td class="align-middle p-2">@item.dir_fname</td>
+                        <td class="align-middle p-2">@item.dir_lname</td>
+                        <td class="align-middle p-2">
+                            @Html.Partial("~/Areas/Admin/Views/Director/Update.cshtml", item)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-md-10 offset-1">
+    @Html.Partial("~/Areas/Admin/Views/Director/Create.cshtml", director)
+</div>
+
+
