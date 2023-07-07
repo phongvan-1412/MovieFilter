@@ -75,10 +75,4 @@ public class DbContext
             }
         }
     }
-    public DbContext()
-    {
-        //
-        // TODO: Add constructor logic here
-        //
-    }
 }
