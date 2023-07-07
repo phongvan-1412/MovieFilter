@@ -10,14 +10,14 @@ namespace MovieFilterSp.Models
     {
         public actor() {}
 
-        //public actor(Service.actor wcfGenre)
-        //{
-        //    this.act_id = wcfGenre.act_id;
-        //    this.act_fname = wcfGenre.act_fname;
-        //    this.act_lname = wcfGenre.act_lname;
-        //    this.act_fullname = wcfGenre.act_fullname;
-        //    this.act_gender = wcfGenre.act_gender;
-        //}
+        public actor(MovieService.actor wcfActor)
+        {
+            act_id = wcfActor.act_id;
+            act_fname = wcfActor.act_fname;
+            act_lname = wcfActor.act_lname;
+            act_fullname = wcfActor.act_fullname;
+            act_gender = wcfActor.act_gender;
+        }
 
         public int act_id { get; set; }
         public string act_fname { get; set; }

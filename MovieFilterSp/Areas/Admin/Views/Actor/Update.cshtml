@@ -38,8 +38,14 @@
                                     var result = MovieFilterSp.Utils.ConvertEnumStatus.ConvertToString(Model.act_gender);
                                 }@result
                             </option>
-                            <option value="1">Female</option>
-                            <option value="2">Male</option>
+                            @if (result == "Female")
+                            {
+                                <option value="2">Male</option>
+                            }
+                            else
+                            {
+                                <option value="1">Female</option>
+                            }
                         </select>
                         <span asp-validation-for="act_fname" class="text-danger"></span>
                     </div>

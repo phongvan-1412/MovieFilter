@@ -182,6 +182,9 @@
     <Content Include="Areas\Admin\Views\Movie\UpdateRole.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Reviewer\Read.cshtml" />
+    <Content Include="Connected Services\MovieService\MovieFilterSp.MovieService.actor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MovieService\Service.disco" />
     <None Include="Connected Services\MovieService\configuration91.svcinfo" />
     <None Include="Connected Services\MovieService\configuration.svcinfo" />
@@ -208,6 +211,65 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\anime\details-pic.jpg" />
+    <Content Include="img\anime\review-1.jpg" />
+    <Content Include="img\anime\review-2.jpg" />
+    <Content Include="img\anime\review-3.jpg" />
+    <Content Include="img\anime\review-4.jpg" />
+    <Content Include="img\anime\review-5.jpg" />
+    <Content Include="img\anime\review-6.jpg" />
+    <Content Include="img\blog\blog-1.jpg" />
+    <Content Include="img\blog\blog-10.jpg" />
+    <Content Include="img\blog\blog-11.jpg" />
+    <Content Include="img\blog\blog-12.jpg" />
+    <Content Include="img\blog\blog-2.jpg" />
+    <Content Include="img\blog\blog-3.jpg" />
+    <Content Include="img\blog\blog-4.jpg" />
+    <Content Include="img\blog\blog-5.jpg" />
+    <Content Include="img\blog\blog-9.jpg" />
+    <Content Include="img\blog\details\bd-item-1.jpg" />
+    <Content Include="img\blog\details\bd-item-2.jpg" />
+    <Content Include="img\blog\details\bd-item-3.jpg" />
+    <Content Include="img\blog\details\blog-details-pic.jpg" />
+    <Content Include="img\blog\details\comment-1.png" />
+    <Content Include="img\blog\details\comment-2.png" />
+    <Content Include="img\blog\details\comment-3.png" />
+    <Content Include="img\hero\hero-1.jpg" />
+    <Content Include="img\live\live-1.jpg" />
+    <Content Include="img\live\live-2.jpg" />
+    <Content Include="img\live\live-3.jpg" />
+    <Content Include="img\live\live-4.jpg" />
+    <Content Include="img\live\live-5.jpg" />
+    <Content Include="img\live\live-6.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\normal-breadcrumb.jpg" />
+    <Content Include="img\popular\popular-1.jpg" />
+    <Content Include="img\popular\popular-2.jpg" />
+    <Content Include="img\popular\popular-3.jpg" />
+    <Content Include="img\popular\popular-4.jpg" />
+    <Content Include="img\popular\popular-5.jpg" />
+    <Content Include="img\popular\popular-6.jpg" />
+    <Content Include="img\recent\recent-1.jpg" />
+    <Content Include="img\recent\recent-2.jpg" />
+    <Content Include="img\recent\recent-3.jpg" />
+    <Content Include="img\recent\recent-4.jpg" />
+    <Content Include="img\recent\recent-5.jpg" />
+    <Content Include="img\recent\recent-6.jpg" />
+    <Content Include="img\sidebar\comment-1.jpg" />
+    <Content Include="img\sidebar\comment-2.jpg" />
+    <Content Include="img\sidebar\comment-3.jpg" />
+    <Content Include="img\sidebar\comment-4.jpg" />
+    <Content Include="img\sidebar\tv-1.jpg" />
+    <Content Include="img\sidebar\tv-2.jpg" />
+    <Content Include="img\sidebar\tv-3.jpg" />
+    <Content Include="img\sidebar\tv-4.jpg" />
+    <Content Include="img\sidebar\tv-5.jpg" />
+    <Content Include="img\trending\trend-1.jpg" />
+    <Content Include="img\trending\trend-2.jpg" />
+    <Content Include="img\trending\trend-3.jpg" />
+    <Content Include="img\trending\trend-4.jpg" />
+    <Content Include="img\trending\trend-5.jpg" />
+    <Content Include="img\trending\trend-6.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -258,7 +320,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="img\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
