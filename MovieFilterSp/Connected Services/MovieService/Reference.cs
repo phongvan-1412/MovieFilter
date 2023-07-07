@@ -15,6 +15,115 @@ namespace MovieFilterSp.MovieService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="actor", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class actor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string act_fnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string act_fullnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int act_genderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int act_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string act_lnameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string act_fname {
+            get {
+                return this.act_fnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.act_fnameField, value) != true)) {
+                    this.act_fnameField = value;
+                    this.RaisePropertyChanged("act_fname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string act_fullname {
+            get {
+                return this.act_fullnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.act_fullnameField, value) != true)) {
+                    this.act_fullnameField = value;
+                    this.RaisePropertyChanged("act_fullname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int act_gender {
+            get {
+                return this.act_genderField;
+            }
+            set {
+                if ((this.act_genderField.Equals(value) != true)) {
+                    this.act_genderField = value;
+                    this.RaisePropertyChanged("act_gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int act_id {
+            get {
+                return this.act_idField;
+            }
+            set {
+                if ((this.act_idField.Equals(value) != true)) {
+                    this.act_idField = value;
+                    this.RaisePropertyChanged("act_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string act_lname {
+            get {
+                return this.act_lnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.act_lnameField, value) != true)) {
+                    this.act_lnameField = value;
+                    this.RaisePropertyChanged("act_lname");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="movie", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class movie : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -158,11 +267,35 @@ namespace MovieFilterSp.MovieService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MovieService.IService")]
     public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAlMovies", ReplyAction="http://tempuri.org/IService/GetAlMoviesResponse")]
-        MovieFilterSp.MovieService.movie[] GetAlMovies();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllActors", ReplyAction="http://tempuri.org/IService/GetAllActorsResponse")]
+        System.Collections.Generic.List<MovieFilterSp.MovieService.actor> GetAllActors();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAlMovies", ReplyAction="http://tempuri.org/IService/GetAlMoviesResponse")]
-        System.Threading.Tasks.Task<MovieFilterSp.MovieService.movie[]> GetAlMoviesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllActors", ReplyAction="http://tempuri.org/IService/GetAllActorsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.actor>> GetAllActorsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActorById", ReplyAction="http://tempuri.org/IService/GetActorByIdResponse")]
+        MovieFilterSp.MovieService.actor GetActorById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActorById", ReplyAction="http://tempuri.org/IService/GetActorByIdResponse")]
+        System.Threading.Tasks.Task<MovieFilterSp.MovieService.actor> GetActorByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertActor", ReplyAction="http://tempuri.org/IService/InsertActorResponse")]
+        string InsertActor(MovieFilterSp.MovieService.actor obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertActor", ReplyAction="http://tempuri.org/IService/InsertActorResponse")]
+        System.Threading.Tasks.Task<string> InsertActorAsync(MovieFilterSp.MovieService.actor obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateActor", ReplyAction="http://tempuri.org/IService/UpdateActorResponse")]
+        string UpdateActor(MovieFilterSp.MovieService.actor obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateActor", ReplyAction="http://tempuri.org/IService/UpdateActorResponse")]
+        System.Threading.Tasks.Task<string> UpdateActorAsync(MovieFilterSp.MovieService.actor obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMovies", ReplyAction="http://tempuri.org/IService/GetAllMoviesResponse")]
+        System.Collections.Generic.List<MovieFilterSp.MovieService.movie> GetAllMovies();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMovies", ReplyAction="http://tempuri.org/IService/GetAllMoviesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.movie>> GetAllMoviesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -192,12 +325,44 @@ namespace MovieFilterSp.MovieService {
                 base(binding, remoteAddress) {
         }
         
-        public MovieFilterSp.MovieService.movie[] GetAlMovies() {
-            return base.Channel.GetAlMovies();
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.actor> GetAllActors() {
+            return base.Channel.GetAllActors();
         }
         
-        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.movie[]> GetAlMoviesAsync() {
-            return base.Channel.GetAlMoviesAsync();
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.actor>> GetAllActorsAsync() {
+            return base.Channel.GetAllActorsAsync();
+        }
+        
+        public MovieFilterSp.MovieService.actor GetActorById(int id) {
+            return base.Channel.GetActorById(id);
+        }
+        
+        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.actor> GetActorByIdAsync(int id) {
+            return base.Channel.GetActorByIdAsync(id);
+        }
+        
+        public string InsertActor(MovieFilterSp.MovieService.actor obj) {
+            return base.Channel.InsertActor(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertActorAsync(MovieFilterSp.MovieService.actor obj) {
+            return base.Channel.InsertActorAsync(obj);
+        }
+        
+        public string UpdateActor(MovieFilterSp.MovieService.actor obj) {
+            return base.Channel.UpdateActor(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateActorAsync(MovieFilterSp.MovieService.actor obj) {
+            return base.Channel.UpdateActorAsync(obj);
+        }
+        
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.movie> GetAllMovies() {
+            return base.Channel.GetAllMovies();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.movie>> GetAllMoviesAsync() {
+            return base.Channel.GetAllMoviesAsync();
         }
     }
 }
