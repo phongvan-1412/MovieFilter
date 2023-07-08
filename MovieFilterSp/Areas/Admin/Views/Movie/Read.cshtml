@@ -12,6 +12,7 @@
     var actors = (List<MovieFilterSp.Models.actor>)ViewData["lstActors"];
     var directors = (List<MovieFilterSp.Models.director>)ViewData["lstDirectors"];
     var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
+    var movies = (List<MovieFilterSp.Models.movie>)ViewData["lstMovies"];
 }
 
 <h2>List of Movies</h2>
@@ -257,12 +258,12 @@
             </thead>
 
             <tbody class="text-white">
-                @*@foreach (var item in Model as List<MovieFilterSp.Models.movie>)
+                @foreach (var item in movies)
                 {
                     <tr>
                         <td class="align-middle p-2" style="margin-right: 1rem">
                             @{
-                                var index = Model.IndexOf(item) + 1;
+                                var index = movies.IndexOf(item) + 1;
                             }@index
                         </td>
                         <td class="align-middle p-2">@item.mov_title</td>
@@ -273,13 +274,13 @@
                                 {
                                     <li class="p-0 mt-2">
                                         @{
-                                            var service = new MovieFilterSp.Service.ServiceClient();
+                                            var service = new MovieFilterSp.MovieService.ServiceClient();
                                             var actName = service.GetActorById(i.act_id).act_fullname;
                                         }-@actName
 
                                     </li>
                                 }
-                                <li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateActor.cshtml", item.movie_cast)</li>
+                                @*<li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateActor.cshtml", item.movie_cast)</li>*@
                             </ul>
                         </td>
 
@@ -289,7 +290,7 @@
                                 {
                                     <li class="p-0 mt-2">-@i.role</li>
                                 }
-                                <li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateRole.cshtml", item.movie_cast)</li>
+                                @*<li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateRole.cshtml", item.movie_cast)</li>*@
                             </ul>
                         </td>
 
@@ -299,12 +300,12 @@
                                 {
                                     <li class="p-0 mt-2">
                                         @{
-                                            var service = new MovieFilterSp.Service.ServiceClient();
+                                            var service = new MovieFilterSp.MovieService.ServiceClient();
                                             var dirName = service.GetDirectorById(i.dir_id).dir_fullname;
                                         }-@dirName
                                     </li>
                                 }
-                                <li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateDirector.cshtml", item.movie_cast)</li>
+                                @*<li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateDirector.cshtml", item.movie_cast)</li>*@
                             </ul>
                         </td>
 
@@ -314,12 +315,12 @@
                                 {
                                     <li class="p-0">
                                         @{
-                                            var service = new MovieFilterSp.Service.ServiceClient();
+                                            var service = new MovieFilterSp.MovieService.ServiceClient();
                                             var genName = service.GetGenreById(i.gen_id).gen_title;
                                         }-@genName
                                     </li>
                                 }
-                                <li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateRole.cshtml", item.movie_cast)</li>
+                                @*<li class="p-0 mt-5">@Html.Partial("~/Areas/Admin/Views/Movie/UpdateRole.cshtml", item.movie_cast)</li>*@
                             </ul>
                         </td>
 
@@ -329,14 +330,14 @@
                         <td class="align-middle p-2">@item.mov_lang</td>
                         <td class="align-middle p-2">@item.mov_rel_country</td>
                         <td class="align-middle p-2">
-                            @Html.Partial("~/Areas/Admin/Views/Movie/RatingDetail.cshtml", item)
+                            @*@Html.Partial("~/Areas/Admin/Views/Movie/RatingDetail.cshtml", item)*@
 
                         </td>
                         <td class="align-middle p-2">
-                            @Html.Partial("~/Areas/Admin/Views/Movie/Update.cshtml", item)
+                            @*@Html.Partial("~/Areas/Admin/Views/Movie/Update.cshtml", item)*@
                         </td>
                     </tr>
-                }*@
+                }
             </tbody>
         </table>
     </div>

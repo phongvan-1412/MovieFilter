@@ -223,21 +223,21 @@ public class Service : IService
 
             foreach (var movcast in lstMovCasts)
             {
-                if (movie.mov_id.Equals(movcast.mov_id))
+                if (movie.mov_id == movcast.mov_id)
                 {
                     lstMovCastTmp.Add(movcast);
                 }
             }
             foreach (var movdir in lstMovDirs)
             {
-                if (movie.mov_id.Equals(movdir.mov_id))
+                if (movie.mov_id == movdir.mov_id)
                 {
                     lstMovDirTmp.Add(movdir);
                 }
             }
             foreach (var movgen in lstMovGens)
             {
-                if (movie.mov_id.Equals(movgen.mov_id))
+                if (movie.mov_id == movgen.mov_id)
                 {
                     lstMovGenTmp.Add(movgen);
                 }
