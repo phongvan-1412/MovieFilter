@@ -712,6 +712,115 @@ namespace MovieFilterSp.MovieService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="reviewer", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class reviewer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string historyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string rev_emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int rev_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string rev_nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string rev_passwordField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string history {
+            get {
+                return this.historyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.historyField, value) != true)) {
+                    this.historyField = value;
+                    this.RaisePropertyChanged("history");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string rev_email {
+            get {
+                return this.rev_emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.rev_emailField, value) != true)) {
+                    this.rev_emailField = value;
+                    this.RaisePropertyChanged("rev_email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int rev_id {
+            get {
+                return this.rev_idField;
+            }
+            set {
+                if ((this.rev_idField.Equals(value) != true)) {
+                    this.rev_idField = value;
+                    this.RaisePropertyChanged("rev_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string rev_name {
+            get {
+                return this.rev_nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.rev_nameField, value) != true)) {
+                    this.rev_nameField = value;
+                    this.RaisePropertyChanged("rev_name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string rev_password {
+            get {
+                return this.rev_passwordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.rev_passwordField, value) != true)) {
+                    this.rev_passwordField = value;
+                    this.RaisePropertyChanged("rev_password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MovieService.IService")]
     public interface IService {
@@ -841,6 +950,24 @@ namespace MovieFilterSp.MovieService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovGen", ReplyAction="http://tempuri.org/IService/InsertMovGenResponse")]
         System.Threading.Tasks.Task<string> InsertMovGenAsync(MovieFilterSp.MovieService.movie_genres obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllReviewers", ReplyAction="http://tempuri.org/IService/GetAllReviewersResponse")]
+        System.Collections.Generic.List<MovieFilterSp.MovieService.reviewer> GetAllReviewers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllReviewers", ReplyAction="http://tempuri.org/IService/GetAllReviewersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.reviewer>> GetAllReviewersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReviewerById", ReplyAction="http://tempuri.org/IService/GetReviewerByIdResponse")]
+        MovieFilterSp.MovieService.reviewer GetReviewerById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReviewerById", ReplyAction="http://tempuri.org/IService/GetReviewerByIdResponse")]
+        System.Threading.Tasks.Task<MovieFilterSp.MovieService.reviewer> GetReviewerByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertReviewer", ReplyAction="http://tempuri.org/IService/InsertReviewerResponse")]
+        string InsertReviewer(MovieFilterSp.MovieService.reviewer obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertReviewer", ReplyAction="http://tempuri.org/IService/InsertReviewerResponse")]
+        System.Threading.Tasks.Task<string> InsertReviewerAsync(MovieFilterSp.MovieService.reviewer obj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1036,6 +1163,30 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<string> InsertMovGenAsync(MovieFilterSp.MovieService.movie_genres obj) {
             return base.Channel.InsertMovGenAsync(obj);
+        }
+        
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.reviewer> GetAllReviewers() {
+            return base.Channel.GetAllReviewers();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.reviewer>> GetAllReviewersAsync() {
+            return base.Channel.GetAllReviewersAsync();
+        }
+        
+        public MovieFilterSp.MovieService.reviewer GetReviewerById(int id) {
+            return base.Channel.GetReviewerById(id);
+        }
+        
+        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.reviewer> GetReviewerByIdAsync(int id) {
+            return base.Channel.GetReviewerByIdAsync(id);
+        }
+        
+        public string InsertReviewer(MovieFilterSp.MovieService.reviewer obj) {
+            return base.Channel.InsertReviewer(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertReviewerAsync(MovieFilterSp.MovieService.reviewer obj) {
+            return base.Channel.InsertReviewerAsync(obj);
         }
     }
 }

@@ -133,6 +133,24 @@
   <wsdl:message name="IService_InsertMovGen_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertMovGenResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetAllReviewers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReviewers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllReviewers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReviewersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetReviewerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewerById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetReviewerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertReviewer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertReviewer" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertReviewer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertReviewerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetAllActors">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllActors" message="tns:IService_GetAllActors_InputMessage" />
@@ -217,6 +235,18 @@
     <wsdl:operation name="InsertMovGen">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertMovGen" message="tns:IService_InsertMovGen_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertMovGenResponse" message="tns:IService_InsertMovGen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReviewers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllReviewers" message="tns:IService_GetAllReviewers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllReviewersResponse" message="tns:IService_GetAllReviewers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetReviewerById" message="tns:IService_GetReviewerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetReviewerByIdResponse" message="tns:IService_GetReviewerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertReviewer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertReviewer" message="tns:IService_InsertReviewer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertReviewerResponse" message="tns:IService_InsertReviewer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -403,6 +433,33 @@
     </wsdl:operation>
     <wsdl:operation name="InsertMovGen">
       <soap:operation soapAction="http://tempuri.org/IService/InsertMovGen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReviewers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllReviewers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewerById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetReviewerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertReviewer">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertReviewer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

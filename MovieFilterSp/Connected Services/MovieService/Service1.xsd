@@ -108,4 +108,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="movie_genres" nillable="true" type="tns:movie_genres" />
+  <xs:complexType name="ArrayOfreviewer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="reviewer" nillable="true" type="tns:reviewer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfreviewer" nillable="true" type="tns:ArrayOfreviewer" />
+  <xs:complexType name="reviewer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="history" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rev_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rev_id" type="xs:int" />
+      <xs:element minOccurs="0" name="rev_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rev_password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="reviewer" nillable="true" type="tns:reviewer" />
 </xs:schema>
