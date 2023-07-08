@@ -10,11 +10,11 @@ namespace MovieFilterSp.Models
     {
         public genre() {}
 
-        //public genre(Service.genre wcfGenre)
-        //{
-        //    this.gen_id = wcfGenre.gen_id;
-        //    this.gen_title = wcfGenre.gen_title;
-        //}
+        public genre(MovieService.genre wcfGenre)
+        {
+            gen_id = wcfGenre.gen_id;
+            gen_title = wcfGenre.gen_title;
+        }
 
         public int gen_id { get; set; }
         public string gen_title { get; set; }

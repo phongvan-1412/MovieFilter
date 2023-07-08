@@ -1,10 +1,6 @@
 ﻿using MovieFilterSp.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace MovieFilterSp.Areas.Admin.Controllers
 {
@@ -12,50 +8,49 @@ namespace MovieFilterSp.Areas.Admin.Controllers
     {
         public ActionResult Read()
         {
-            //var service = new Service.ServiceClient();
-            //var lstService = service.GetAllGenres();
+            var service = new MovieService.ServiceClient();
+            var lstService = service.GetAllGenres();
 
-            //List<genre> lstGenres = new List<genre>();
-            //foreach (var item in lstService)
-            //{
-            //    genre genre = new genre(item);
-            //    lstGenres.Add(genre);
-            //}
+            List<genre> lstGenres = new List<genre>();
+            foreach (var item in lstService)
+            {
+                genre genre = new genre(item);
+                lstGenres.Add(genre);
+            }
 
-            //return View(lstGenres);
-            return View();
+            return View(lstGenres);
         }
 
-        //[HttpPost]
-        //public ActionResult Create(genre obj)
-        //{
-        //    var service = new Service.ServiceClient();
-        //    Service.genre genre = new Service.genre
-        //    {
-        //        gen_title = obj.gen_title
-        //    };
+        [HttpPost]
+        public ActionResult Create(genre obj)
+        {
+            var service = new MovieService.ServiceClient();
+            MovieService.genre genre = new MovieService.genre
+            {
+                gen_title = obj.gen_title
+            };
 
-        //    service.CreateGenre(genre);
+            var result = service.InsertGenre(genre);
 
-        //    TempData["successCreate"] = "Create Successfully";
+            TempData["successCreate"] = result;
 
-        //    return RedirectToAction("Read", "Genre", new { area = "Admin" });
-        //}
+            return RedirectToAction("Read", "Genre", new { area = "Admin" });
+        }
 
-        //[HttpPost]
-        //public ActionResult Update(genre obj)
-        //{
-        //    var service = new Service.ServiceClient();
-        //    Service.genre genre = new Service.genre
-        //    {
-        //        gen_id = obj.gen_id,
-        //        gen_title = obj.gen_title
-        //    };
+        [HttpPost]
+        public ActionResult Update(genre obj)
+        {
+            var service = new MovieService.ServiceClient();
+            MovieService.genre genre = new MovieService.genre
+            {
+                gen_id = obj.gen_id,
+                gen_title = obj.gen_title
+            };
 
-        //    service.UpdateGenre(genre.gen_id, genre);
+            var result = service.UpdateGenre(genre);
 
-        //    TempData["successUpdate"] = "Update Successfully";
-        //    return RedirectToAction("Read", "Genre", new { area = "Admin" });
-        //}
+            TempData["successUpdate"] = result;
+            return RedirectToAction("Read", "Genre", new { area = "Admin" });
+        }
     }
 }
