@@ -23,4 +23,10 @@ public class movie
     public string mov_dt_rel { get; set; }
     [DataMember]
     public string mov_rel_country { get; set; }
+    [DataMember]
+    public List<movie_cast> movie_cast { get; set; }
+    [DataMember]
+    public List<movie_direction> movie_direction { get; set; }
+    [DataMember]
+    public List<movie_genres> movie_genres { get; set; }
 }

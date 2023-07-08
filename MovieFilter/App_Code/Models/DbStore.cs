@@ -29,7 +29,11 @@ public class DbStore
     public static string GetAllMovies = "Sp_GetMovies";
 
     public static string InsertMovCast = "Sp_InsertMovCast";
-    public static string InsertMovDir = "Sp_InsertMovDir";
-    public static string InsertMovGen = "Sp_InsertMovGen";
+    public static string GetAllMovCasts = "Sp_GetMovCasts";
 
+    public static string InsertMovDir = "Sp_InsertMovDir";
+    public static string GetAllMovDirs = "Sp_GetMovDirs";
+
+    public static string InsertMovGen = "Sp_InsertMovGen";
+    public static string GetAllMovGens = "Sp_GetMovGens";
 }

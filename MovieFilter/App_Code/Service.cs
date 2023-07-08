@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 
@@ -210,6 +211,41 @@ public class Service : IService
     public List<movie> GetAllMovies()
     {
         var lstMovies = DbContext.Instance.Exec<List<movie>>(DbStore.GetAllMovies);
+        var lstMovCasts = DbContext.Instance.Exec<List<movie_cast>>(DbStore.GetAllMovCasts);
+        var lstMovDirs = DbContext.Instance.Exec<List<movie_direction>>(DbStore.GetAllMovDirs);
+        var lstMovGens = DbContext.Instance.Exec<List<movie_genres>>(DbStore.GetAllMovGens);
+
+        foreach (var movie in lstMovies)
+        {
+            var lstMovCastTmp = new List<movie_cast>();
+            var lstMovDirTmp = new List<movie_direction>();
+            var lstMovGenTmp = new List<movie_genres>();
+
+            foreach (var movcast in lstMovCasts)
+            {
+                if (movie.mov_id.Equals(movcast.mov_id))
+                {
+                    lstMovCastTmp.Add(movcast);
+                }
+            }
+            foreach (var movdir in lstMovDirs)
+            {
+                if (movie.mov_id.Equals(movdir.mov_id))
+                {
+                    lstMovDirTmp.Add(movdir);
+                }
+            }
+            foreach (var movgen in lstMovGens)
+            {
+                if (movie.mov_id.Equals(movgen.mov_id))
+                {
+                    lstMovGenTmp.Add(movgen);
+                }
+            }
+            movie.movie_cast = lstMovCastTmp;
+            movie.movie_direction = lstMovDirTmp;
+            movie.movie_genres = lstMovGenTmp;
+        }
         return lstMovies;
     }
     public movie GetMovieById(int id)
