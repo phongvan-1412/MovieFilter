@@ -963,6 +963,12 @@ namespace MovieFilterSp.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReviewerById", ReplyAction="http://tempuri.org/IService/GetReviewerByIdResponse")]
         System.Threading.Tasks.Task<MovieFilterSp.MovieService.reviewer> GetReviewerByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReviewerByEmail", ReplyAction="http://tempuri.org/IService/GetReviewerByEmailResponse")]
+        MovieFilterSp.MovieService.reviewer GetReviewerByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReviewerByEmail", ReplyAction="http://tempuri.org/IService/GetReviewerByEmailResponse")]
+        System.Threading.Tasks.Task<MovieFilterSp.MovieService.reviewer> GetReviewerByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertReviewer", ReplyAction="http://tempuri.org/IService/InsertReviewerResponse")]
         string InsertReviewer(MovieFilterSp.MovieService.reviewer obj);
         
@@ -1179,6 +1185,14 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<MovieFilterSp.MovieService.reviewer> GetReviewerByIdAsync(int id) {
             return base.Channel.GetReviewerByIdAsync(id);
+        }
+        
+        public MovieFilterSp.MovieService.reviewer GetReviewerByEmail(string email) {
+            return base.Channel.GetReviewerByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.reviewer> GetReviewerByEmailAsync(string email) {
+            return base.Channel.GetReviewerByEmailAsync(email);
         }
         
         public string InsertReviewer(MovieFilterSp.MovieService.reviewer obj) {

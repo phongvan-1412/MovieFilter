@@ -145,6 +145,12 @@
   <wsdl:message name="IService_GetReviewerById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetReviewerByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetReviewerByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewerByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetReviewerByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewerByEmailResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_InsertReviewer_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertReviewer" />
   </wsdl:message>
@@ -243,6 +249,10 @@
     <wsdl:operation name="GetReviewerById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetReviewerById" message="tns:IService_GetReviewerById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetReviewerByIdResponse" message="tns:IService_GetReviewerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewerByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetReviewerByEmail" message="tns:IService_GetReviewerByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetReviewerByEmailResponse" message="tns:IService_GetReviewerByEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertReviewer">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertReviewer" message="tns:IService_InsertReviewer_InputMessage" />
@@ -451,6 +461,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetReviewerById">
       <soap:operation soapAction="http://tempuri.org/IService/GetReviewerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewerByEmail">
+      <soap:operation soapAction="http://tempuri.org/IService/GetReviewerByEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
