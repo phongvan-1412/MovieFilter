@@ -55,6 +55,30 @@
   <wsdl:message name="IService_UpdateDirector_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateDirectorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetAllGenres_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGenres" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllGenres_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGenresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetGenreById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenreById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetGenreById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenreByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGenre" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGenre" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGenreResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetAllMovies_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllMovies" />
   </wsdl:message>
@@ -93,6 +117,22 @@
     <wsdl:operation name="UpdateDirector">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateDirector" message="tns:IService_UpdateDirector_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateDirectorResponse" message="tns:IService_UpdateDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGenres">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllGenres" message="tns:IService_GetAllGenres_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllGenresResponse" message="tns:IService_GetAllGenres_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetGenreById" message="tns:IService_GetGenreById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetGenreByIdResponse" message="tns:IService_GetGenreById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertGenre" message="tns:IService_InsertGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertGenreResponse" message="tns:IService_InsertGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateGenre" message="tns:IService_UpdateGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateGenreResponse" message="tns:IService_UpdateGenre_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllMovies">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMovies" message="tns:IService_GetAllMovies_InputMessage" />
@@ -166,6 +206,42 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateDirector">
       <soap:operation soapAction="http://tempuri.org/IService/UpdateDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGenres">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllGenres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetGenreById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGenre">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertGenre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGenre">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateGenre" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

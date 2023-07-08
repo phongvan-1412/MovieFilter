@@ -217,6 +217,67 @@ namespace MovieFilterSp.MovieService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="genre", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class genre : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int gen_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string gen_titleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int gen_id {
+            get {
+                return this.gen_idField;
+            }
+            set {
+                if ((this.gen_idField.Equals(value) != true)) {
+                    this.gen_idField = value;
+                    this.RaisePropertyChanged("gen_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string gen_title {
+            get {
+                return this.gen_titleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.gen_titleField, value) != true)) {
+                    this.gen_titleField = value;
+                    this.RaisePropertyChanged("gen_title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="movie", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class movie : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -408,6 +469,30 @@ namespace MovieFilterSp.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateDirector", ReplyAction="http://tempuri.org/IService/UpdateDirectorResponse")]
         System.Threading.Tasks.Task<string> UpdateDirectorAsync(MovieFilterSp.MovieService.director obj);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllGenres", ReplyAction="http://tempuri.org/IService/GetAllGenresResponse")]
+        System.Collections.Generic.List<MovieFilterSp.MovieService.genre> GetAllGenres();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllGenres", ReplyAction="http://tempuri.org/IService/GetAllGenresResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.genre>> GetAllGenresAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGenreById", ReplyAction="http://tempuri.org/IService/GetGenreByIdResponse")]
+        MovieFilterSp.MovieService.genre GetGenreById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGenreById", ReplyAction="http://tempuri.org/IService/GetGenreByIdResponse")]
+        System.Threading.Tasks.Task<MovieFilterSp.MovieService.genre> GetGenreByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertGenre", ReplyAction="http://tempuri.org/IService/InsertGenreResponse")]
+        string InsertGenre(MovieFilterSp.MovieService.genre obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertGenre", ReplyAction="http://tempuri.org/IService/InsertGenreResponse")]
+        System.Threading.Tasks.Task<string> InsertGenreAsync(MovieFilterSp.MovieService.genre obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateGenre", ReplyAction="http://tempuri.org/IService/UpdateGenreResponse")]
+        string UpdateGenre(MovieFilterSp.MovieService.genre obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateGenre", ReplyAction="http://tempuri.org/IService/UpdateGenreResponse")]
+        System.Threading.Tasks.Task<string> UpdateGenreAsync(MovieFilterSp.MovieService.genre obj);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMovies", ReplyAction="http://tempuri.org/IService/GetAllMoviesResponse")]
         System.Collections.Generic.List<MovieFilterSp.MovieService.movie> GetAllMovies();
         
@@ -504,6 +589,38 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<string> UpdateDirectorAsync(MovieFilterSp.MovieService.director obj) {
             return base.Channel.UpdateDirectorAsync(obj);
+        }
+        
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.genre> GetAllGenres() {
+            return base.Channel.GetAllGenres();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.genre>> GetAllGenresAsync() {
+            return base.Channel.GetAllGenresAsync();
+        }
+        
+        public MovieFilterSp.MovieService.genre GetGenreById(int id) {
+            return base.Channel.GetGenreById(id);
+        }
+        
+        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.genre> GetGenreByIdAsync(int id) {
+            return base.Channel.GetGenreByIdAsync(id);
+        }
+        
+        public string InsertGenre(MovieFilterSp.MovieService.genre obj) {
+            return base.Channel.InsertGenre(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertGenreAsync(MovieFilterSp.MovieService.genre obj) {
+            return base.Channel.InsertGenreAsync(obj);
+        }
+        
+        public string UpdateGenre(MovieFilterSp.MovieService.genre obj) {
+            return base.Channel.UpdateGenre(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateGenreAsync(MovieFilterSp.MovieService.genre obj) {
+            return base.Channel.UpdateGenreAsync(obj);
         }
         
         public System.Collections.Generic.List<MovieFilterSp.MovieService.movie> GetAllMovies() {

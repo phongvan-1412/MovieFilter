@@ -31,6 +31,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="director" nillable="true" type="tns:director" />
+  <xs:complexType name="ArrayOfgenre">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="genre" nillable="true" type="tns:genre" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfgenre" nillable="true" type="tns:ArrayOfgenre" />
+  <xs:complexType name="genre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="gen_id" type="xs:int" />
+      <xs:element minOccurs="0" name="gen_title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="genre" nillable="true" type="tns:genre" />
   <xs:complexType name="ArrayOfmovie">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="movie" nillable="true" type="tns:movie" />
