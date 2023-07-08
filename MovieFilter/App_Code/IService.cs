@@ -70,5 +70,5 @@ public interface IService
     [OperationContract]
     reviewer GetReviewerById(int id);
     [OperationContract]
-    reviewer InsertReviewer(reviewer obj);
+    string InsertReviewer(reviewer obj);
 }
