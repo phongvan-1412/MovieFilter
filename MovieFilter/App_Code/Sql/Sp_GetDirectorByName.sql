@@ -1,6 +1,6 @@
 create proc Sp_GetDirectorByName
-@Name nvarchar(4000)
+@DirName nvarchar(4000)
 as
 begin
-	select * from director where dir_fullname like '%@Name%'
+	select * from director where dir_fullname like '%' +@DirName+ '%'
 end
