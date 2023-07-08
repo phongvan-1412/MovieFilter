@@ -7,6 +7,7 @@ using System.Web;
 [DataContract]
 public class movie_genres
 {
+    public movie_genres() { }
     [DataMember]
     public int movie_genres_id { get; set; }
     [DataMember]

@@ -7,6 +7,7 @@ using System.Web;
 [DataContract]
 public class movie_direction
 {
+    public movie_direction() { }
     [DataMember]
     public int movie_director_id { get; set; }
     [DataMember]
