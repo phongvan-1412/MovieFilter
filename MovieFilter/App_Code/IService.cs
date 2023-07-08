@@ -30,6 +30,16 @@ public interface IService
     [OperationContract]
     string UpdateDirector(director obj);
 
+    //Genre
+    [OperationContract]
+    List<genre> GetAllGenres();
+    [OperationContract]
+    genre GetGenrerById(int id);
+    [OperationContract]
+    string InsertGenre(genre obj);
+    [OperationContract]
+    string UpdateGenre(genre obj);
+
     //Movie
     [OperationContract]
 	List<movie> GetAllMovies();

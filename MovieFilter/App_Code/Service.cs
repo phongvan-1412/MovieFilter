@@ -127,6 +127,60 @@ public class Service : IService
         return resultString = "Update Successfully";
     }
 
+    //Genre
+    public List<genre> GetAllGenres()
+    {
+        var lstGenres = DbContext.Instance.Exec<List<genre>>(DbStore.GetAllGenres);
+        return lstGenres;
+    }
+    public genre GetGenreById(int id)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Id", id },
+        };
+
+        var lstGenres = DbContext.Instance.Exec<List<genre>>(DbStore.GetGenreById, param);
+        return lstGenres.FirstOrDefault();
+    }
+    public string InsertGenre(genre obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Title", obj.gen_title },
+        };
+
+        var result = DbContext.Instance.Exec<List<director>>(DbStore.InsertGenre, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
+    public string UpdateGenre(genre obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Id", obj.gen_id },
+            { "@Title", obj.gen_title },
+        };
+
+        var result = DbContext.Instance.Exec<List<director>>(DbStore.UpdateGenre, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Update Successfully";
+    }
+
     //Movie
     public List<movie> GetAllMovies()
     {
