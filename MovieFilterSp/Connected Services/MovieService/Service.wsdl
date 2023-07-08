@@ -19,6 +19,12 @@
   <wsdl:message name="IService_GetActorById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetActorByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetActorByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetActorByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorByNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_InsertActor_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertActor" />
   </wsdl:message>
@@ -43,6 +49,12 @@
   <wsdl:message name="IService_GetDirectorById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDirectorByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetDirectorByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDirectorByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorByNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_InsertDirector_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertDirector" />
   </wsdl:message>
@@ -66,6 +78,12 @@
   </wsdl:message>
   <wsdl:message name="IService_GetGenreById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGenreByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetGenreByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenreByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetGenreByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenreByNameResponse" />
   </wsdl:message>
   <wsdl:message name="IService_InsertGenre_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertGenre" />
@@ -124,6 +142,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetActorById" message="tns:IService_GetActorById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetActorByIdResponse" message="tns:IService_GetActorById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetActorByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetActorByName" message="tns:IService_GetActorByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetActorByNameResponse" message="tns:IService_GetActorByName_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsertActor">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertActor" message="tns:IService_InsertActor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertActorResponse" message="tns:IService_InsertActor_OutputMessage" />
@@ -140,6 +162,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDirectorById" message="tns:IService_GetDirectorById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDirectorByIdResponse" message="tns:IService_GetDirectorById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetDirectorByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDirectorByName" message="tns:IService_GetDirectorByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDirectorByNameResponse" message="tns:IService_GetDirectorByName_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsertDirector">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertDirector" message="tns:IService_InsertDirector_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertDirectorResponse" message="tns:IService_InsertDirector_OutputMessage" />
@@ -155,6 +181,10 @@
     <wsdl:operation name="GetGenreById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetGenreById" message="tns:IService_GetGenreById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetGenreByIdResponse" message="tns:IService_GetGenreById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetGenreByName" message="tns:IService_GetGenreByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetGenreByNameResponse" message="tns:IService_GetGenreByName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertGenre">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertGenre" message="tns:IService_InsertGenre_InputMessage" />
@@ -209,6 +239,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetActorByName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetActorByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertActor">
       <soap:operation soapAction="http://tempuri.org/IService/InsertActor" style="document" />
       <wsdl:input>
@@ -245,6 +284,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDirectorByName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetDirectorByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertDirector">
       <soap:operation soapAction="http://tempuri.org/IService/InsertDirector" style="document" />
       <wsdl:input>
@@ -274,6 +322,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGenreById">
       <soap:operation soapAction="http://tempuri.org/IService/GetGenreById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreByName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetGenreByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

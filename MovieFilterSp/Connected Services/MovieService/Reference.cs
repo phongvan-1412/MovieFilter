@@ -680,6 +680,12 @@ namespace MovieFilterSp.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActorById", ReplyAction="http://tempuri.org/IService/GetActorByIdResponse")]
         System.Threading.Tasks.Task<MovieFilterSp.MovieService.actor> GetActorByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActorByName", ReplyAction="http://tempuri.org/IService/GetActorByNameResponse")]
+        int GetActorByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActorByName", ReplyAction="http://tempuri.org/IService/GetActorByNameResponse")]
+        System.Threading.Tasks.Task<int> GetActorByNameAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertActor", ReplyAction="http://tempuri.org/IService/InsertActorResponse")]
         string InsertActor(MovieFilterSp.MovieService.actor obj);
         
@@ -704,6 +710,12 @@ namespace MovieFilterSp.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDirectorById", ReplyAction="http://tempuri.org/IService/GetDirectorByIdResponse")]
         System.Threading.Tasks.Task<MovieFilterSp.MovieService.director> GetDirectorByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDirectorByName", ReplyAction="http://tempuri.org/IService/GetDirectorByNameResponse")]
+        int GetDirectorByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDirectorByName", ReplyAction="http://tempuri.org/IService/GetDirectorByNameResponse")]
+        System.Threading.Tasks.Task<int> GetDirectorByNameAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertDirector", ReplyAction="http://tempuri.org/IService/InsertDirectorResponse")]
         string InsertDirector(MovieFilterSp.MovieService.director obj);
         
@@ -727,6 +739,12 @@ namespace MovieFilterSp.MovieService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGenreById", ReplyAction="http://tempuri.org/IService/GetGenreByIdResponse")]
         System.Threading.Tasks.Task<MovieFilterSp.MovieService.genre> GetGenreByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGenreByName", ReplyAction="http://tempuri.org/IService/GetGenreByNameResponse")]
+        int GetGenreByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGenreByName", ReplyAction="http://tempuri.org/IService/GetGenreByNameResponse")]
+        System.Threading.Tasks.Task<int> GetGenreByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertGenre", ReplyAction="http://tempuri.org/IService/InsertGenreResponse")]
         string InsertGenre(MovieFilterSp.MovieService.genre obj);
@@ -820,6 +838,14 @@ namespace MovieFilterSp.MovieService {
             return base.Channel.GetActorByIdAsync(id);
         }
         
+        public int GetActorByName(string name) {
+            return base.Channel.GetActorByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetActorByNameAsync(string name) {
+            return base.Channel.GetActorByNameAsync(name);
+        }
+        
         public string InsertActor(MovieFilterSp.MovieService.actor obj) {
             return base.Channel.InsertActor(obj);
         }
@@ -852,6 +878,14 @@ namespace MovieFilterSp.MovieService {
             return base.Channel.GetDirectorByIdAsync(id);
         }
         
+        public int GetDirectorByName(string name) {
+            return base.Channel.GetDirectorByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetDirectorByNameAsync(string name) {
+            return base.Channel.GetDirectorByNameAsync(name);
+        }
+        
         public string InsertDirector(MovieFilterSp.MovieService.director obj) {
             return base.Channel.InsertDirector(obj);
         }
@@ -882,6 +916,14 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<MovieFilterSp.MovieService.genre> GetGenreByIdAsync(int id) {
             return base.Channel.GetGenreByIdAsync(id);
+        }
+        
+        public int GetGenreByName(string name) {
+            return base.Channel.GetGenreByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetGenreByNameAsync(string name) {
+            return base.Channel.GetGenreByNameAsync(name);
         }
         
         public string InsertGenre(MovieFilterSp.MovieService.genre obj) {
