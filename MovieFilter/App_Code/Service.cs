@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 
 public class Service : IService
@@ -24,6 +19,16 @@ public class Service : IService
 
         var lstActors = DbContext.Instance.Exec<List<actor>>(DbStore.GetActorById, param);
         return lstActors.FirstOrDefault();
+    }
+    public int GetActorByName(string name)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@ActName", name },
+        };
+
+        var lstActors = DbContext.Instance.Exec<List<actor>>(DbStore.GetActorByName, param);
+        return lstActors.FirstOrDefault().act_id;
     }
     public string InsertActor(actor obj)
     {
@@ -85,6 +90,16 @@ public class Service : IService
         var lstDirectors = DbContext.Instance.Exec<List<director>>(DbStore.GetDirectorById, param);
         return lstDirectors.FirstOrDefault();
     }
+    public int GetDirectorByName(string name)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@DirName", name },
+        };
+
+        var lstDirectors = DbContext.Instance.Exec<List<director>>(DbStore.GetDirectorByName, param);
+        return lstDirectors.FirstOrDefault().dir_id;
+    }
     public string InsertDirector(director obj)
     {
         var param = new Dictionary<string, dynamic>
@@ -142,6 +157,16 @@ public class Service : IService
 
         var lstGenres = DbContext.Instance.Exec<List<genre>>(DbStore.GetGenreById, param);
         return lstGenres.FirstOrDefault();
+    }
+    public int GetGenreByName(string name)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@GenName", name },
+        };
+
+        var lstGenres = DbContext.Instance.Exec<List<genre>>(DbStore.GetGenreByName, param);
+        return lstGenres.FirstOrDefault().gen_id;
     }
     public string InsertGenre(genre obj)
     {

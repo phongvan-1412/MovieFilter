@@ -16,6 +16,8 @@ public interface IService
     [OperationContract]
     actor GetActorById(int id);
     [OperationContract]
+    int GetActorByName(string name);
+    [OperationContract]
     string InsertActor(actor obj);
     [OperationContract]
     string UpdateActor(actor obj);
@@ -26,6 +28,8 @@ public interface IService
     [OperationContract]
     director GetDirectorById(int id);
     [OperationContract]
+    int GetDirectorByName(string name);
+    [OperationContract]
     string InsertDirector(director obj);
     [OperationContract]
     string UpdateDirector(director obj);
@@ -35,6 +39,8 @@ public interface IService
     List<genre> GetAllGenres();
     [OperationContract]
     genre GetGenreById(int id);
+    [OperationContract]
+    int GetGenreByName(string name);
     [OperationContract]
     string InsertGenre(genre obj);
     [OperationContract]
@@ -51,8 +57,11 @@ public interface IService
     //string UpdateMovie(movie obj);
 
     //Movie_cast + Movie_direction + Movie_genres
+    [OperationContract]
     string InsertMovCast(movie_cast obj);
+    [OperationContract]
     string InsertMovDir(movie_direction obj);
+    [OperationContract]
     string InsertMovGen(movie_genres obj);
 
 
