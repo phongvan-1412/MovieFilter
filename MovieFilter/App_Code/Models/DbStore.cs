@@ -36,4 +36,8 @@ public class DbStore
 
     public static string InsertMovGen = "Sp_InsertMovGen";
     public static string GetAllMovGens = "Sp_GetMovGens";
+
+    public static string InsertReviewer = "Sp_InsertReviewer";
+    public static string GetReviewerById = "Sp_GetReviewerById";
+    public static string GetAllReviewers = "Sp_GetReviewers";
 }

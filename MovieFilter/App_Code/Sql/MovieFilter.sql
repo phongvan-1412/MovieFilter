@@ -13,7 +13,9 @@ create table director (
 create table reviewer (
     rev_id int identity(1,1) primary key,
     rev_name nvarchar(4000) default '',
-    history ntext default ''
+    history ntext default '',
+    rev_email varchar(4000) default '',
+    rev_password varchar(4000) default ''
 )
 
 create table movie (
