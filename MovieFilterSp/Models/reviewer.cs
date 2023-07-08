@@ -10,15 +10,14 @@ namespace MovieFilterSp.Models
     {
         public reviewer() {}
 
-        //public reviewer(Service.reviewer reviewer)
-        //{
-        //    this.rev_id = reviewer.rev_id;
-        //    this.rev_name = reviewer.rev_name;
-        //    this.history = reviewer.history;
-        //    this.rev_email = reviewer.rev_email;
-        //    this.rev_password = reviewer.history;
-        //}
-
+        public reviewer(MovieService.reviewer reviewer)
+        {
+            rev_id = reviewer.rev_id;
+            rev_name = reviewer.rev_name;
+            history = reviewer.history;
+            rev_email = reviewer.rev_email;
+            rev_password = reviewer.history;
+        }
 
         public int rev_id { get; set; }
         public string rev_name { get; set; }
