@@ -306,6 +306,15 @@ namespace MovieFilterSp.MovieService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string mov_yearField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<MovieFilterSp.MovieService.movie_cast> movie_castField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<MovieFilterSp.MovieService.movie_direction> movie_directionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<MovieFilterSp.MovieService.movie_genres> movie_genresField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -403,6 +412,45 @@ namespace MovieFilterSp.MovieService {
                 if ((object.ReferenceEquals(this.mov_yearField, value) != true)) {
                     this.mov_yearField = value;
                     this.RaisePropertyChanged("mov_year");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.movie_cast> movie_cast {
+            get {
+                return this.movie_castField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.movie_castField, value) != true)) {
+                    this.movie_castField = value;
+                    this.RaisePropertyChanged("movie_cast");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.movie_direction> movie_direction {
+            get {
+                return this.movie_directionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.movie_directionField, value) != true)) {
+                    this.movie_directionField = value;
+                    this.RaisePropertyChanged("movie_direction");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.movie_genres> movie_genres {
+            get {
+                return this.movie_genresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.movie_genresField, value) != true)) {
+                    this.movie_genresField = value;
+                    this.RaisePropertyChanged("movie_genres");
                 }
             }
         }

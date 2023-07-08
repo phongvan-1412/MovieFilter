@@ -59,9 +59,18 @@
       <xs:element minOccurs="0" name="mov_time" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="mov_title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="mov_year" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="movie_cast" nillable="true" type="tns:ArrayOfmovie_cast" />
+      <xs:element minOccurs="0" name="movie_direction" nillable="true" type="tns:ArrayOfmovie_direction" />
+      <xs:element minOccurs="0" name="movie_genres" nillable="true" type="tns:ArrayOfmovie_genres" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="movie" nillable="true" type="tns:movie" />
+  <xs:complexType name="ArrayOfmovie_cast">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="movie_cast" nillable="true" type="tns:movie_cast" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmovie_cast" nillable="true" type="tns:ArrayOfmovie_cast" />
   <xs:complexType name="movie_cast">
     <xs:sequence>
       <xs:element minOccurs="0" name="act_id" type="xs:int" />
@@ -71,6 +80,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="movie_cast" nillable="true" type="tns:movie_cast" />
+  <xs:complexType name="ArrayOfmovie_direction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="movie_direction" nillable="true" type="tns:movie_direction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmovie_direction" nillable="true" type="tns:ArrayOfmovie_direction" />
   <xs:complexType name="movie_direction">
     <xs:sequence>
       <xs:element minOccurs="0" name="dir_id" type="xs:int" />
@@ -79,6 +94,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="movie_direction" nillable="true" type="tns:movie_direction" />
+  <xs:complexType name="ArrayOfmovie_genres">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="movie_genres" nillable="true" type="tns:movie_genres" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmovie_genres" nillable="true" type="tns:ArrayOfmovie_genres" />
   <xs:complexType name="movie_genres">
     <xs:sequence>
       <xs:element minOccurs="0" name="gen_id" type="xs:int" />
