@@ -187,5 +187,97 @@ public class Service : IService
         var lstMovies = DbContext.Instance.Exec<List<movie>>(DbStore.GetAllMovies);
         return lstMovies;
     }
+    public movie GetMovieById(int id)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Id", id },
+        };
 
+        var lstMovies = DbContext.Instance.Exec<List<movie>>(DbStore.GetMovieById, param);
+        return lstMovies.FirstOrDefault();
+    }
+    public string InsertMovie(movie obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Title", obj.mov_title },
+            { "@Year", obj.mov_year },
+            { "@Length", obj.mov_time },
+            { "@Lang", obj.mov_lang },
+            { "@DateRel", obj.mov_dt_rel },
+            { "@Country", obj.mov_rel_country },
+        };
+
+        var result = DbContext.Instance.Exec<List<director>>(DbStore.InsertMovie, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
+
+    //Movie_cast + Movie_direction + Movie_genres
+    public string InsertMovCast(movie_cast obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@ActId", obj.act_id },
+            { "@MovId", obj.mov_id },
+            { "@Role", obj.role }
+        };
+
+        var result = DbContext.Instance.Exec<List<movie_cast>>(DbStore.InsertMovCast, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
+    public string InsertMovDir(movie_direction obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@MovId", obj.mov_id },
+            { "@DirId", obj.dir_id }
+        };
+
+        var result = DbContext.Instance.Exec<List<movie_direction>>(DbStore.InsertMovDir, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
+    public string InsertMovGen(movie_genres obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@MovId", obj.mov_id },
+            { "@GenId", obj.gen_id }
+        };
+
+        var result = DbContext.Instance.Exec<List<movie_genres>>(DbStore.InsertMovGen, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
 }

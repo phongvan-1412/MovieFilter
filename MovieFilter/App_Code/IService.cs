@@ -43,5 +43,17 @@ public interface IService
     //Movie
     [OperationContract]
 	List<movie> GetAllMovies();
-    
+    [OperationContract]
+    movie GetMovieById(int id);
+    [OperationContract]
+    string InsertMovie(movie obj);
+    //[OperationContract]
+    //string UpdateMovie(movie obj);
+
+    //Movie_cast + Movie_direction + Movie_genres
+    string InsertMovCast(movie_cast obj);
+    string InsertMovDir(movie_direction obj);
+    string InsertMovGen(movie_genres obj);
+
+
 }
