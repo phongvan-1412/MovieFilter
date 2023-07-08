@@ -185,6 +185,9 @@
     <Content Include="Connected Services\MovieService\MovieFilterSp.MovieService.actor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MovieService\MovieFilterSp.MovieService.director.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MovieService\Service.disco" />
     <None Include="Connected Services\MovieService\configuration91.svcinfo" />
     <None Include="Connected Services\MovieService\configuration.svcinfo" />

@@ -31,6 +31,30 @@
   <wsdl:message name="IService_UpdateActor_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateActorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetAllDirectors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDirectors" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllDirectors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDirectorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDirectorById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDirectorById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDirector" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDirector" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDirectorResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetAllMovies_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllMovies" />
   </wsdl:message>
@@ -53,6 +77,22 @@
     <wsdl:operation name="UpdateActor">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateActor" message="tns:IService_UpdateActor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateActorResponse" message="tns:IService_UpdateActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDirectors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllDirectors" message="tns:IService_GetAllDirectors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllDirectorsResponse" message="tns:IService_GetAllDirectors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectorById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDirectorById" message="tns:IService_GetDirectorById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDirectorByIdResponse" message="tns:IService_GetDirectorById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertDirector" message="tns:IService_InsertDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertDirectorResponse" message="tns:IService_InsertDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateDirector" message="tns:IService_UpdateDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateDirectorResponse" message="tns:IService_UpdateDirector_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllMovies">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMovies" message="tns:IService_GetAllMovies_InputMessage" />
@@ -90,6 +130,42 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateActor">
       <soap:operation soapAction="http://tempuri.org/IService/UpdateActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDirectors">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllDirectors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectorById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetDirectorById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDirector">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDirector">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateDirector" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

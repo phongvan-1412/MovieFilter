@@ -124,6 +124,99 @@ namespace MovieFilterSp.MovieService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="director", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class director : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string dir_fnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string dir_fullnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int dir_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string dir_lnameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string dir_fname {
+            get {
+                return this.dir_fnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.dir_fnameField, value) != true)) {
+                    this.dir_fnameField = value;
+                    this.RaisePropertyChanged("dir_fname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string dir_fullname {
+            get {
+                return this.dir_fullnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.dir_fullnameField, value) != true)) {
+                    this.dir_fullnameField = value;
+                    this.RaisePropertyChanged("dir_fullname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int dir_id {
+            get {
+                return this.dir_idField;
+            }
+            set {
+                if ((this.dir_idField.Equals(value) != true)) {
+                    this.dir_idField = value;
+                    this.RaisePropertyChanged("dir_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string dir_lname {
+            get {
+                return this.dir_lnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.dir_lnameField, value) != true)) {
+                    this.dir_lnameField = value;
+                    this.RaisePropertyChanged("dir_lname");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="movie", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class movie : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -291,6 +384,30 @@ namespace MovieFilterSp.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateActor", ReplyAction="http://tempuri.org/IService/UpdateActorResponse")]
         System.Threading.Tasks.Task<string> UpdateActorAsync(MovieFilterSp.MovieService.actor obj);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllDirectors", ReplyAction="http://tempuri.org/IService/GetAllDirectorsResponse")]
+        System.Collections.Generic.List<MovieFilterSp.MovieService.director> GetAllDirectors();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllDirectors", ReplyAction="http://tempuri.org/IService/GetAllDirectorsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.director>> GetAllDirectorsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDirectorById", ReplyAction="http://tempuri.org/IService/GetDirectorByIdResponse")]
+        MovieFilterSp.MovieService.director GetDirectorById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDirectorById", ReplyAction="http://tempuri.org/IService/GetDirectorByIdResponse")]
+        System.Threading.Tasks.Task<MovieFilterSp.MovieService.director> GetDirectorByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertDirector", ReplyAction="http://tempuri.org/IService/InsertDirectorResponse")]
+        string InsertDirector(MovieFilterSp.MovieService.director obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertDirector", ReplyAction="http://tempuri.org/IService/InsertDirectorResponse")]
+        System.Threading.Tasks.Task<string> InsertDirectorAsync(MovieFilterSp.MovieService.director obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateDirector", ReplyAction="http://tempuri.org/IService/UpdateDirectorResponse")]
+        string UpdateDirector(MovieFilterSp.MovieService.director obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateDirector", ReplyAction="http://tempuri.org/IService/UpdateDirectorResponse")]
+        System.Threading.Tasks.Task<string> UpdateDirectorAsync(MovieFilterSp.MovieService.director obj);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMovies", ReplyAction="http://tempuri.org/IService/GetAllMoviesResponse")]
         System.Collections.Generic.List<MovieFilterSp.MovieService.movie> GetAllMovies();
         
@@ -355,6 +472,38 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<string> UpdateActorAsync(MovieFilterSp.MovieService.actor obj) {
             return base.Channel.UpdateActorAsync(obj);
+        }
+        
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.director> GetAllDirectors() {
+            return base.Channel.GetAllDirectors();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.director>> GetAllDirectorsAsync() {
+            return base.Channel.GetAllDirectorsAsync();
+        }
+        
+        public MovieFilterSp.MovieService.director GetDirectorById(int id) {
+            return base.Channel.GetDirectorById(id);
+        }
+        
+        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.director> GetDirectorByIdAsync(int id) {
+            return base.Channel.GetDirectorByIdAsync(id);
+        }
+        
+        public string InsertDirector(MovieFilterSp.MovieService.director obj) {
+            return base.Channel.InsertDirector(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertDirectorAsync(MovieFilterSp.MovieService.director obj) {
+            return base.Channel.InsertDirectorAsync(obj);
+        }
+        
+        public string UpdateDirector(MovieFilterSp.MovieService.director obj) {
+            return base.Channel.UpdateDirector(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateDirectorAsync(MovieFilterSp.MovieService.director obj) {
+            return base.Channel.UpdateDirectorAsync(obj);
         }
         
         public System.Collections.Generic.List<MovieFilterSp.MovieService.movie> GetAllMovies() {

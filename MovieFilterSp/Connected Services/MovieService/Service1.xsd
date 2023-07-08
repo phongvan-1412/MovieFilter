@@ -16,6 +16,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="actor" nillable="true" type="tns:actor" />
+  <xs:complexType name="ArrayOfdirector">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="director" nillable="true" type="tns:director" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdirector" nillable="true" type="tns:ArrayOfdirector" />
+  <xs:complexType name="director">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dir_fname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dir_fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dir_id" type="xs:int" />
+      <xs:element minOccurs="0" name="dir_lname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="director" nillable="true" type="tns:director" />
   <xs:complexType name="ArrayOfmovie">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="movie" nillable="true" type="tns:movie" />
