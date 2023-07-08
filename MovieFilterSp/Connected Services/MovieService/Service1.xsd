@@ -62,4 +62,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="movie" nillable="true" type="tns:movie" />
+  <xs:complexType name="movie_cast">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="act_id" type="xs:int" />
+      <xs:element minOccurs="0" name="mov_id" type="xs:int" />
+      <xs:element minOccurs="0" name="movie_cast_id" type="xs:int" />
+      <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="movie_cast" nillable="true" type="tns:movie_cast" />
+  <xs:complexType name="movie_direction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dir_id" type="xs:int" />
+      <xs:element minOccurs="0" name="mov_id" type="xs:int" />
+      <xs:element minOccurs="0" name="movie_director_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="movie_direction" nillable="true" type="tns:movie_direction" />
+  <xs:complexType name="movie_genres">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="gen_id" type="xs:int" />
+      <xs:element minOccurs="0" name="mov_id" type="xs:int" />
+      <xs:element minOccurs="0" name="movie_genres_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="movie_genres" nillable="true" type="tns:movie_genres" />
 </xs:schema>

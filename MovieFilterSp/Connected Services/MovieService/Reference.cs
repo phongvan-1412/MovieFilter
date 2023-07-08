@@ -417,6 +417,253 @@ namespace MovieFilterSp.MovieService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="movie_cast", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class movie_cast : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int act_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int mov_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int movie_cast_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string roleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int act_id {
+            get {
+                return this.act_idField;
+            }
+            set {
+                if ((this.act_idField.Equals(value) != true)) {
+                    this.act_idField = value;
+                    this.RaisePropertyChanged("act_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int mov_id {
+            get {
+                return this.mov_idField;
+            }
+            set {
+                if ((this.mov_idField.Equals(value) != true)) {
+                    this.mov_idField = value;
+                    this.RaisePropertyChanged("mov_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int movie_cast_id {
+            get {
+                return this.movie_cast_idField;
+            }
+            set {
+                if ((this.movie_cast_idField.Equals(value) != true)) {
+                    this.movie_cast_idField = value;
+                    this.RaisePropertyChanged("movie_cast_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string role {
+            get {
+                return this.roleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.roleField, value) != true)) {
+                    this.roleField = value;
+                    this.RaisePropertyChanged("role");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="movie_direction", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class movie_direction : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int dir_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int mov_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int movie_director_idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int dir_id {
+            get {
+                return this.dir_idField;
+            }
+            set {
+                if ((this.dir_idField.Equals(value) != true)) {
+                    this.dir_idField = value;
+                    this.RaisePropertyChanged("dir_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int mov_id {
+            get {
+                return this.mov_idField;
+            }
+            set {
+                if ((this.mov_idField.Equals(value) != true)) {
+                    this.mov_idField = value;
+                    this.RaisePropertyChanged("mov_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int movie_director_id {
+            get {
+                return this.movie_director_idField;
+            }
+            set {
+                if ((this.movie_director_idField.Equals(value) != true)) {
+                    this.movie_director_idField = value;
+                    this.RaisePropertyChanged("movie_director_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="movie_genres", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class movie_genres : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int gen_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int mov_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int movie_genres_idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int gen_id {
+            get {
+                return this.gen_idField;
+            }
+            set {
+                if ((this.gen_idField.Equals(value) != true)) {
+                    this.gen_idField = value;
+                    this.RaisePropertyChanged("gen_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int mov_id {
+            get {
+                return this.mov_idField;
+            }
+            set {
+                if ((this.mov_idField.Equals(value) != true)) {
+                    this.mov_idField = value;
+                    this.RaisePropertyChanged("mov_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int movie_genres_id {
+            get {
+                return this.movie_genres_idField;
+            }
+            set {
+                if ((this.movie_genres_idField.Equals(value) != true)) {
+                    this.movie_genres_idField = value;
+                    this.RaisePropertyChanged("movie_genres_id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MovieService.IService")]
     public interface IService {
@@ -510,6 +757,24 @@ namespace MovieFilterSp.MovieService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovie", ReplyAction="http://tempuri.org/IService/InsertMovieResponse")]
         System.Threading.Tasks.Task<string> InsertMovieAsync(MovieFilterSp.MovieService.movie obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovCast", ReplyAction="http://tempuri.org/IService/InsertMovCastResponse")]
+        string InsertMovCast(MovieFilterSp.MovieService.movie_cast obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovCast", ReplyAction="http://tempuri.org/IService/InsertMovCastResponse")]
+        System.Threading.Tasks.Task<string> InsertMovCastAsync(MovieFilterSp.MovieService.movie_cast obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovDir", ReplyAction="http://tempuri.org/IService/InsertMovDirResponse")]
+        string InsertMovDir(MovieFilterSp.MovieService.movie_direction obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovDir", ReplyAction="http://tempuri.org/IService/InsertMovDirResponse")]
+        System.Threading.Tasks.Task<string> InsertMovDirAsync(MovieFilterSp.MovieService.movie_direction obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovGen", ReplyAction="http://tempuri.org/IService/InsertMovGenResponse")]
+        string InsertMovGen(MovieFilterSp.MovieService.movie_genres obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovGen", ReplyAction="http://tempuri.org/IService/InsertMovGenResponse")]
+        System.Threading.Tasks.Task<string> InsertMovGenAsync(MovieFilterSp.MovieService.movie_genres obj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -657,6 +922,30 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<string> InsertMovieAsync(MovieFilterSp.MovieService.movie obj) {
             return base.Channel.InsertMovieAsync(obj);
+        }
+        
+        public string InsertMovCast(MovieFilterSp.MovieService.movie_cast obj) {
+            return base.Channel.InsertMovCast(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertMovCastAsync(MovieFilterSp.MovieService.movie_cast obj) {
+            return base.Channel.InsertMovCastAsync(obj);
+        }
+        
+        public string InsertMovDir(MovieFilterSp.MovieService.movie_direction obj) {
+            return base.Channel.InsertMovDir(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertMovDirAsync(MovieFilterSp.MovieService.movie_direction obj) {
+            return base.Channel.InsertMovDirAsync(obj);
+        }
+        
+        public string InsertMovGen(MovieFilterSp.MovieService.movie_genres obj) {
+            return base.Channel.InsertMovGen(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertMovGenAsync(MovieFilterSp.MovieService.movie_genres obj) {
+            return base.Channel.InsertMovGenAsync(obj);
         }
     }
 }

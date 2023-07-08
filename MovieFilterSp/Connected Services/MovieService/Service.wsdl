@@ -97,6 +97,24 @@
   <wsdl:message name="IService_InsertMovie_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertMovieResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_InsertMovCast_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMovCast" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertMovCast_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMovCastResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertMovDir_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMovDir" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertMovDir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMovDirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertMovGen_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMovGen" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertMovGen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMovGenResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetAllActors">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllActors" message="tns:IService_GetAllActors_InputMessage" />
@@ -157,6 +175,18 @@
     <wsdl:operation name="InsertMovie">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertMovie" message="tns:IService_InsertMovie_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertMovieResponse" message="tns:IService_InsertMovie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMovCast">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertMovCast" message="tns:IService_InsertMovCast_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertMovCastResponse" message="tns:IService_InsertMovCast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMovDir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertMovDir" message="tns:IService_InsertMovDir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertMovDirResponse" message="tns:IService_InsertMovDir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMovGen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertMovGen" message="tns:IService_InsertMovGen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertMovGenResponse" message="tns:IService_InsertMovGen_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -289,6 +319,33 @@
     </wsdl:operation>
     <wsdl:operation name="InsertMovie">
       <soap:operation soapAction="http://tempuri.org/IService/InsertMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMovCast">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertMovCast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMovDir">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertMovDir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMovGen">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertMovGen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
