@@ -46,7 +46,6 @@ public class Service : IService
 
         return resultString = "Create Successfully";
     }
-
     public string UpdateActor(actor obj)
     {
         var param = new Dictionary<string, dynamic>
@@ -59,6 +58,64 @@ public class Service : IService
         };
 
         var result = DbContext.Instance.Exec<List<actor>>(DbStore.UpdateActor, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Update Successfully";
+    }
+
+    //Director
+    public List<director> GetAllDirectors()
+    {
+        var lstDirectors = DbContext.Instance.Exec<List<director>>(DbStore.GetAllDirectors);
+        return lstDirectors;
+    }
+    public director GetDirectorById(int id)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Id", id },
+        };
+
+        var lstDirectors = DbContext.Instance.Exec<List<director>>(DbStore.GetDirectorById, param);
+        return lstDirectors.FirstOrDefault();
+    }
+    public string InsertDirector(director obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@FName", obj.dir_fname },
+            { "@LName", obj.dir_lname },
+            { "@FulName", obj.dir_fullname },
+        };
+
+        var result = DbContext.Instance.Exec<List<director>>(DbStore.InsertDirector, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
+    public string UpdateDirector(director obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Id", obj.dir_id },
+            { "@FName", obj.dir_fname },
+            { "@LName", obj.dir_lname },
+            { "@FulName", obj.dir_fullname },
+        };
+
+        var result = DbContext.Instance.Exec<List<director>>(DbStore.UpdateDirector, param);
         string resultString;
 
         if (result == null)

@@ -12,4 +12,9 @@ public class DbStore
     public static string GetActorById = "Sp_GetActorById";
     public static string GetAllActors = "Sp_GetActors";
 
+    public static string InsertDirector = "Sp_InsertDirector";
+    public static string UpdateDirector = "Sp_UpdateDirector";
+    public static string GetDirectorById = "Sp_GetDirectorById";
+    public static string GetAllDirectors = "Sp_GetDirectors";
+
 }

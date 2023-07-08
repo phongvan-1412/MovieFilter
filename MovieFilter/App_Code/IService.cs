@@ -20,6 +20,16 @@ public interface IService
     [OperationContract]
     string UpdateActor(actor obj);
 
+    //Director
+    [OperationContract]
+    List<director> GetAllDirectors();
+    [OperationContract]
+    director GetDirectorById(int id);
+    [OperationContract]
+    string InsertDirector(director obj);
+    [OperationContract]
+    string UpdateDirector(director obj);
+
     //Movie
     [OperationContract]
 	List<movie> GetAllMovies();
