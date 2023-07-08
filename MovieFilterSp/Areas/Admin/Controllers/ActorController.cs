@@ -1,9 +1,5 @@
-﻿using Antlr.Runtime.Misc;
-using MovieFilterSp.Models;
-using System;
+﻿using MovieFilterSp.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MovieFilterSp.Areas.Admin.Controllers

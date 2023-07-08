@@ -1,67 +1,62 @@
 ﻿using MovieFilterSp.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace MovieFilterSp.Areas.Admin.Controllers
 {
     public class DirectorController : Controller
     {
-        //[HttpPost]
-        //public ActionResult Create(director obj)
-        //{
-        //    var service = new Service.ServiceClient();
-        //    Service.director director = new Service.director
-        //    {
-        //        dir_fname = obj.dir_fname,
-        //        dir_lname = obj.dir_lname,
-        //        dir_fullname = obj.dir_fname + " " + obj.dir_lname,
-        //    };
+        [HttpPost]
+        public ActionResult Create(director obj)
+        {
+            var service = new MovieService.ServiceClient();
+            MovieService.director director = new MovieService.director
+            {
+                dir_fname = obj.dir_fname,
+                dir_lname = obj.dir_lname,
+                dir_fullname = $"{obj.dir_fname} {obj.dir_lname}",
+            };
 
-        //    service.CreateDirector(director);
+            var result = service.InsertDirector(director);
 
-        //    TempData["successCreate"] = "Create Successfully";
+            TempData["successCreate"] = result;
 
-        //    return RedirectToAction("Read", "Director", new { area = "Admin" });
-        //}
+            return RedirectToAction("Read", "Director", new { area = "Admin" });
+        }
 
         public ActionResult Read()
         {
-            //var service = new Service.ServiceClient();
-            //var lstService = service.GetAllDirectors();
+            var service = new MovieService.ServiceClient();
+            var lstService = service.GetAllDirectors();
 
-            //List<director> lstDirectors = new List<director>();
-            //foreach (var item in lstService)
-            //{
-            //    director director = new director(item);
-            //    lstDirectors.Add(director);
-            //}
+            List<director> lstDirectors = new List<director>();
+            foreach (var item in lstService)
+            {
+                director director = new director(item);
+                lstDirectors.Add(director);
+            }
 
-            //return View(lstDirectors);
-            return View();
+            return View(lstDirectors);
         }
 
-        //[HttpPost]
-        //public ActionResult Update(director obj)
-        //{
-        //    var service = new Service.ServiceClient();
-        //    Service.director recentDirector = service.GetDirectorById(obj.dir_id);
+        [HttpPost]
+        public ActionResult Update(director obj)
+        {
+            var service = new MovieService.ServiceClient();
+            MovieService.director recentDirector = service.GetDirectorById(obj.dir_id);
 
-        //    Service.director director = new Service.director
-        //    {
-        //        dir_id = obj.dir_id,
-        //        dir_fname = obj.dir_fname,
-        //        dir_lname = obj.dir_lname,
-        //        dir_fullname = obj.dir_fname + " " + obj.dir_lname
-        //    };
+            MovieService.director director = new MovieService.director
+            {
+                dir_id = obj.dir_id,
+                dir_fname = obj.dir_fname,
+                dir_lname = obj.dir_lname,
+                dir_fullname = $"{obj.dir_fname} {obj.dir_lname}"
+            };
 
-        //    service.UpdateDirector(director.dir_id, director);
+            var result = service.UpdateDirector(director);
 
-        //    TempData["successUpdate"] = "Update Successfully";
-        //    return RedirectToAction("Read", "Director", new { area = "Admin" });
-        //}
+            TempData["successUpdate"] = result;
+            return RedirectToAction("Read", "Director", new { area = "Admin" });
+        }
     }
 }

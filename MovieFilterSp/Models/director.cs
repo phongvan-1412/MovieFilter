@@ -10,13 +10,13 @@ namespace MovieFilterSp.Models
     {
         public director() {}
 
-        //public director(Service.director obj)
-        //{
-        //    this.dir_id = obj.dir_id;
-        //    this.dir_fname = obj.dir_fname;
-        //    this.dir_lname = obj.dir_lname;
-        //    this.dir_fullname = obj.dir_fullname;
-        //}
+        public director(MovieService.director obj)
+        {
+            dir_id = obj.dir_id;
+            dir_fname = obj.dir_fname;
+            dir_lname = obj.dir_lname;
+            dir_fullname = obj.dir_fullname;
+        }
 
         public int dir_id { get; set; }
         public string dir_fname { get; set; }
