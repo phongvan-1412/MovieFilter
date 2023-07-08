@@ -34,7 +34,7 @@ public interface IService
     [OperationContract]
     List<genre> GetAllGenres();
     [OperationContract]
-    genre GetGenrerById(int id);
+    genre GetGenreById(int id);
     [OperationContract]
     string InsertGenre(genre obj);
     [OperationContract]
