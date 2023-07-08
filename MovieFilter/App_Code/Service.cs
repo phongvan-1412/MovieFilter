@@ -222,7 +222,7 @@ public class Service : IService
         var lstMovies = DbContext.Instance.Exec<List<movie>>(DbStore.GetMovieById, param);
         return lstMovies.FirstOrDefault();
     }
-    public string InsertMovie(movie obj)
+    public movie InsertMovie(movie obj)
     {
         var param = new Dictionary<string, dynamic>
         {
@@ -234,16 +234,8 @@ public class Service : IService
             { "@Country", obj.mov_rel_country },
         };
 
-        var result = DbContext.Instance.Exec<List<director>>(DbStore.InsertMovie, param);
-        string resultString;
-
-        if (result == null)
-        {
-            resultString = "Something Wrong in server.";
-            return resultString;
-        }
-
-        return resultString = "Create Successfully";
+        var result = DbContext.Instance.Exec<List<movie>>(DbStore.InsertMovie, param);
+        return result.FirstOrDefault();
     }
 
     //Movie_cast + Movie_direction + Movie_genres

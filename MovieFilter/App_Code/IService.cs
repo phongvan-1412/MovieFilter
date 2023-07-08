@@ -52,7 +52,7 @@ public interface IService
     [OperationContract]
     movie GetMovieById(int id);
     [OperationContract]
-    string InsertMovie(movie obj);
+    movie InsertMovie(movie obj);
     //[OperationContract]
     //string UpdateMovie(movie obj);
 
