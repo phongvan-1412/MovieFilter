@@ -64,5 +64,11 @@ public interface IService
     [OperationContract]
     string InsertMovGen(movie_genres obj);
 
-
+    //Reviewer
+    [OperationContract]
+    List<reviewer> GetAllReviewers();
+    [OperationContract]
+    reviewer GetReviewerById(int id);
+    [OperationContract]
+    reviewer InsertReviewer(reviewer obj);
 }

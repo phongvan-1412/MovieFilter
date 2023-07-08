@@ -333,4 +333,42 @@ public class Service : IService
 
         return resultString = "Create Successfully";
     }
+
+    //Reviewer
+    public List<reviewer> GetAllReviewers()
+    {
+        var lstReviewers = DbContext.Instance.Exec<List<reviewer>>(DbStore.GetAllReviewers);
+        return lstReviewers;
+    }
+    public reviewer GetReviewerById(int id)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Id", id },
+        };
+
+        var lstReviewers = DbContext.Instance.Exec<List<reviewer>>(DbStore.GetReviewerById, param);
+        return lstReviewers.FirstOrDefault();
+    }
+    public string InsertReviewer(reviewer obj)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Name", obj.rev_name },
+            { "@History", "" },
+            { "@Email", obj.rev_email },
+            { "@Pass", obj.rev_password },
+        };
+
+        var result = DbContext.Instance.Exec<List<reviewer>>(DbStore.InsertReviewer, param);
+        string resultString;
+
+        if (result == null)
+        {
+            resultString = "Something Wrong in server.";
+            return resultString;
+        }
+
+        return resultString = "Create Successfully";
+    }
 }
