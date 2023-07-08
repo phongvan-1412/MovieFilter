@@ -6,12 +6,12 @@
     MovieFilterSp.Models.movie movie = new MovieFilterSp.Models.movie();
     var countries = (List<MovieFilterSp.Models.country>)ViewData["lstCountries"];
     var languages = (List<MovieFilterSp.Models.language>)ViewData["lstLanguages"];
-    //var hours = (List<int>)ViewData["lstHour"];
-    //var minutes = (List<Int64>)ViewData["lstMinute"];
-    //var years = (List<int>)ViewData["lstYears"];
-    //var actors = (List<MovieFilterSp.Models.actor>)ViewData["lstActors"];
-    //var directors = (List<MovieFilterSp.Models.director>)ViewData["lstDirectors"];
-    //var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
+    var hours = (List<int>)ViewData["lstHour"];
+    var minutes = (List<Int64>)ViewData["lstMinute"];
+    var years = (List<int>)ViewData["lstYears"];
+    var actors = (List<MovieFilterSp.Models.actor>)ViewData["lstActors"];
+    var directors = (List<MovieFilterSp.Models.director>)ViewData["lstDirectors"];
+    var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
 }
 
 <h2>List of Movies</h2>
@@ -29,8 +29,8 @@
                 <div class="d-flex mb-4">
                     <div class="me-5">
                         <label class="fw-bold me-3" style="color: #0d6efd">Order</label>
-                        <select class="form-select" name="order" style="width: 100px;">
-                            <option>Select Order</option>
+                        <select id="selOrder" name="order" placeholder="Select Order">
+                            <option selected disabled>Select Order</option>
                             <option value="5">Ascending</option>
                             <option value="6">Descending</option>
                         </select>
@@ -38,27 +38,27 @@
 
                     <div class="me-5">
                         <label class="fw-bold me-3" style="color: #0d6efd">Year</label>
-                        <select class="form-select" name="year" style="width: 100px;">
-                            <option>Select Year</option>
+                        <select id="selYear" name="year" placeholder="Select Year">
+                            <option selected disabled>Select Year</option>
                             <option>Before 1998</option>
                             <option>Between 1990-2000</option>
-                            @*@foreach (var item in years)
+                            @foreach (var item in years)
                             {
                                 <option>@item</option>
-                            }*@
+                            }
                         </select>
                     </div>
 
-                    <div class="me-5">
+                    <div class="me-3">
                         <div class="d-flex me-3 mb-2">
                             <div class="me-3">
                                 <label class="fw-bold me-3" style="color: #0d6efd">Actor</label>
-                                <select id="selActor" name="actor" placeholder="Select Actor" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                    <option>Select</option>
-                                    @*@foreach (var item in actors as List<MovieFilterSp.Models.actor>)
+                                <select id="selActor" name="actor" placeholder="Select Actor" data-search="true" data-silent-initial-value-set="true">
+                                    <option selected disabled>Select</option>
+                                    @foreach (var item in actors as List<MovieFilterSp.Models.actor>)
                                     {
                                         <option>@item.act_fullname</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
                             <div class="d-flex flex-column align-items-center float-start">
@@ -69,44 +69,44 @@
 
 
                         <div class="d-flex mb-2">
-                            <div class="me-3">
+                            <div>
                                 <label class="fw-bold me-3" style="font-size: 12px; color: #0d6efd">Act FName</label>
-                                <select id="selActFName" name="actFName" placeholder="Select FName" data-search="true" data-silent-initial-value-set="true" style="width: 50px">
-                                    <option>Select</option>
-                                    @*@foreach (var item in actors as List<MovieFilterSp.Models.actor>)
+                                <select id="selActFName" name="actFName" placeholder="Select FName" data-search="true" data-silent-initial-value-set="true">
+                                    <option selected disabled>Select</option>
+                                    @foreach (var item in actors as List<MovieFilterSp.Models.actor>)
                                     {
                                         <option>@item.act_fname</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
 
                             <div>
                                 <label class="fw-bold me-3" style="font-size: 12px; color: #0d6efd">Act LName</label>
-                                <select id="selActLName" name="actLName" placeholder="Select LName" data-search="true" data-silent-initial-value-set="true" style="width: 50px">
-                                    <option>Select</option>
-                                    @*@foreach (var item in actors as List<MovieFilterSp.Models.actor>)
+                                <select id="selActLName" name="actLName" placeholder="Select LName" data-search="true" data-silent-initial-value-set="true">
+                                    <option selected disabled>Select</option>
+                                    @foreach (var item in actors as List<MovieFilterSp.Models.actor>)
                                     {
                                         <option>@item.act_lname</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <div class="me-5">
+                    <div class="me-3">
                         <div class="d-flex me-3 mb-2">
                             <div class="me-3">
                                 <label class="fw-bold me-3" style="color: #0d6efd">Director</label>
-                                <select id="selDirectors" name="director" placeholder="Select Director" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                    <option>Select</option>
-                                    @*@foreach (var item in directors as List<MovieFilterSp.Models.director>)
+                                <select id="selDirectors" name="director" placeholder="Select Director" data-search="true" data-silent-initial-value-set="true">
+                                    <option selected disabled>Select</option>
+                                    @foreach (var item in directors as List<MovieFilterSp.Models.director>)
                                     {
                                         <option>@item.dir_fullname</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
 
-                            <div class="d-flex flex-column align-items-center float-start">
+                            <div class="d-flex flex-column align-items-center">
                                 <label class="fw-bold me-3" style="color: #0d6efd">Has roled</label>
                                 <input name="hasRole" type="checkbox" />
                             </div>
@@ -115,23 +115,23 @@
                         <div class="d-flex mb-2">
                             <div class="me-3">
                                 <label class="fw-bold me-3" style="font-size: 12px; color: #0d6efd">Dir FName</label>
-                                <select id="selDirFName" name="firstName" placeholder="Select FName" data-search="true" data-silent-initial-value-set="true" style="width: 50px">
-                                    <option>Select</option>
-                                    @*@foreach (var item in directors as List<MovieFilterSp.Models.director>)
+                                <select id="selDirFName" name="firstName" placeholder="Select FName" data-search="true" data-silent-initial-value-set="true">
+                                    <option selected disabled>Select</option>
+                                    @foreach (var item in directors as List<MovieFilterSp.Models.director>)
                                     {
                                         <option>@item.dir_fname</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
 
                             <div>
                                 <label class="fw-bold me-3" style="font-size: 12px; color: #0d6efd">Dir LName</label>
-                                <select id="selDirLName" name="lastName" placeholder="Select LName" data-search="true" data-silent-initial-value-set="true" style="width: 50px">
-                                    <option>Select</option>
-                                    @*@foreach (var item in directors as List<MovieFilterSp.Models.director>)
+                                <select id="selDirLName" name="lastName" placeholder="Select LName" data-search="true" data-silent-initial-value-set="true">
+                                    <option selected disabled>Select</option>
+                                    @foreach (var item in directors as List<MovieFilterSp.Models.director>)
                                     {
                                         <option>@item.dir_lname</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -141,45 +141,45 @@
                 <hr class="mt-3 mb-3" style="color: #0d6efd" />
 
                 <div class="d-flex mb-3">
-                    <div class="me-5">
-                        <div class="me-3 mb-2">
-                            <label class="fw-bold me-3" style="color: #0d6efd">Countries</label>
-                            <select id="selCountry" name="country" placeholder="Select Country" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                <option>Select</option>
-                                @*@foreach (var item in countries as List<MovieFilterSp.Models.country>)
+                    <div class="me-3">
+                        <div class="d-flex flex-column me-5 mb-2">
+                            <label class="fw-bold" style="color: #0d6efd">Countries</label>
+                            <select id="selCountry" name="country" placeholder="Select Country" data-search="true" data-silent-initial-value-set="true">
+                                <option selected disabled>Select</option>
+                                @foreach (var item in countries as List<MovieFilterSp.Models.country>)
                                 {
                                     <option>@item.name</option>
-                                }*@
+                                }
                             </select>
                         </div>
 
-                        <div>
-                            <label class="fw-bold me-3" style="color: #0d6efd">Without</label>
-                            <select id="selXCountry" name="xCountry" placeholder="Select Country" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                <option>Select</option>
-                                @*@foreach (var item in countries as List<MovieFilterSp.Models.country>)
+                        <div class="d-flex flex-column me-5 mb-2">
+                            <label class="fw-bold" style="color: #0d6efd">Without</label>
+                            <select id="selXCountry" name="xCountry" placeholder="Select Country" data-search="true" data-silent-initial-value-set="true">
+                                <option selected disabled>Select</option>
+                                @foreach (var item in countries as List<MovieFilterSp.Models.country>)
                                 {
                                     <option>@item.name</option>
-                                }*@
+                                }
                             </select>
                         </div>
                     </div>
 
-                    <div class="me-5">
-                        <label class="fw-bold me-3" style="color: #0d6efd">Language</label>
-                        <select id="selLanguage" name="lang" placeholder="Select Language" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                            <option>Select</option>
-                            @*@foreach (var item in languages as List<MovieFilterSp.Models.language>)
+                    <div class="d-flex flex-column me-5 mb-2">
+                        <label class="fw-bold" style="color: #0d6efd">Language</label>
+                        <select id="selLang" name="lang" placeholder="Select Language" data-search="true" data-silent-initial-value-set="true">
+                            <option selected disabled>Select</option>
+                            @foreach (var item in languages as List<MovieFilterSp.Models.language>)
                             {
                                 <option>@item.name</option>
-                            }*@
+                            }
                         </select>
                     </div>
 
-                    <div class="me-5">
-                        <label class="fw-bold me-3" style="color: #0d6efd">Rating</label>
-                        <select id="selRating" name="rating" placeholder="Select Rating" data-search="true" data-silent-initial-value-set="true" style="width: 100px">
-                            <option>Select</option>
+                    <div class="d-flex flex-column me-5 mb-2">
+                        <label class="fw-bold" style="color: #0d6efd">Rating</label>
+                        <select id="selRating" name="rating" placeholder="Select Rating" data-search="true" data-silent-initial-value-set="true">
+                            <option selected disabled>Select</option>
                             <option value="7">None Rating</option>
                             <option value="18">Rating</option>
                             <option value="8">At least 3 stars</option>
@@ -190,37 +190,39 @@
                         </select>
                     </div>
 
-                    <div class="me-5">
-                        <label class="fw-bold me-3" style="color: #0d6efd">Reviewer</label>
-                        <select id="selReviewer" name="reviewer" placeholder="Select Reviewer" data-search="true" data-silent-initial-value-set="true" style="width: 100px">
-                            <option>Select</option>
+                    <div class="d-flex flex-column me-5 mb-2">
+                        <label class="fw-bold" style="color: #0d6efd">Reviewer</label>
+                        <select id="selReviewer" name="reviewer" placeholder="Select Reviewer" data-search="true" data-silent-initial-value-set="true">
+                            <option selected disabled>Select</option>
                             <option value="9">User</option>
                             <option value="10">Anonymous</option>
                         </select>
                     </div>
 
-                    <div>
-                        <label class="fw-bold me-3" style="color: #0d6efd">Genre</label>
-                        <select id="selGenres" name="genre" multiple placeholder="Select Genre" data-search="true" data-silent-initial-value-set="true" style="width: 100px">
-                            <option>Select</option>
-                            @*@foreach (var item in genres)
+                    <div class="d-flex flex-column me-5 mb-2">
+                        <label class="fw-bold" style="color: #0d6efd">Genre</label>
+                        <select id="selGenres" name="genre" multiple placeholder="Select Genre" data-search="true" data-silent-initial-value-set="true">
+                            <option selected disabled>Select</option>
+                            @foreach (var item in genres)
                             {
                                 <option>
                                     @item.gen_title
                                 </option>
-                            }*@
+                            }
+                        </select>
+                    </div>
+
+                    <div class="d-flex flex-column me-5 mb-2">
+                        <label class="fw-bold" style="color: #0d6efd">Duration</label>
+                        <select id="selDuration" name="duration" placeholder="Select" data-search="true" data-silent-initial-value-set="true">
+                            <option selected disabled>Select Duration</option>
+                            <option value="15">Shortest</option>
+                            <option value="16">Longest</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="d-flex mb-3">
-                    <label class="fw-bold me-3" style="color: #0d6efd">Duration</label>
-                    <select id="selDuration" name="duration" placeholder="Select Duration" data-search="true" data-silent-initial-value-set="true" style="width: 100px">
-                        <option>Select</option>
-                        <option value="15">Shortest</option>
-                        <option value="16">Longest</option>
-                    </select>
-                </div>
+                
                 <button type="submit" class="btn btn-primary text-white me-3">Search</button>
             </form>
 
@@ -348,63 +350,93 @@
 <script type="text/javascript" src="~/Scripts/virtual-select.min.js"></script>
 <script type="text/javascript">
     VirtualSelect.init({
+        ele: '#selOrder',
+        autoSelectFirstOption: false,
+        maxWidth: "160px"
+    });
+
+    VirtualSelect.init({
+        ele: '#selYear',
+        autoSelectFirstOption: false,
+        maxWidth: "160px"
+    });
+
+    VirtualSelect.init({
         ele: '#selCountry',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selXCountry',
-        autoSelectFirstOption: true,
+        autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
-        ele: '#selLanguage',
+        ele: '#selLang',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selDirectors',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selDirFName',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selDirLName',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selActor',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selActFName',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selActLName',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selRating',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selReviewer',
         autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 
     VirtualSelect.init({
         ele: '#selGenres',
         autoSelectFirstOption: false,
+        maxWidth: "150px"
+    });
+
+    VirtualSelect.init({
+        ele: '#selDuration',
+        autoSelectFirstOption: false,
+        maxWidth: "160px"
     });
 </script>
 

@@ -10,16 +10,16 @@ namespace MovieFilterSp.Models
     {
         public movie() {}
 
-        //public movie(Service.movie wcfMovie)
-        //{
-        //    this.mov_id = wcfMovie.mov_id;
-        //    this.mov_title = wcfMovie.mov_title;
-        //    this.mov_year = wcfMovie.mov_year;
-        //    this.mov_time = wcfMovie.mov_time;
-        //    this.mov_lang = wcfMovie.mov_lang;
-        //    this.mov_dt_rel = wcfMovie.mov_dt_rel;
-        //    this.mov_rel_country = wcfMovie.mov_rel_country;
-        //}
+        public movie(MovieService.movie wcfMovie)
+        {
+            mov_id = wcfMovie.mov_id;
+            mov_title = wcfMovie.mov_title;
+            mov_year = wcfMovie.mov_year;
+            mov_time = wcfMovie.mov_time;
+            mov_lang = wcfMovie.mov_lang;
+            mov_dt_rel = wcfMovie.mov_dt_rel;
+            mov_rel_country = wcfMovie.mov_rel_country;
+        }
 
         public int mov_id { get; set; }
         public string mov_title { get; set; }
@@ -28,5 +28,9 @@ namespace MovieFilterSp.Models
         public string mov_lang { get; set; }
         public string mov_dt_rel { get; set; }
         public string mov_rel_country { get; set; }
+        public List<movie_cast> movie_cast { get; set; }
+        public List<movie_direction> movie_direction { get; set; }
+        public List<movie_genres> movie_genres { get; set; }
+
     }
 }

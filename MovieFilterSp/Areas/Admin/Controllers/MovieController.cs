@@ -16,75 +16,86 @@ namespace MovieFilterSp.Areas.Admin.Controllers
     {
         public ActionResult Read()
         {
+            ViewData["lstCountries"] = Country();
+            ViewData["lstLanguages"] = Language();
+            ViewData["lstHour"] = Hours();
+            ViewData["lstMinute"] = Minutes();
+            ViewData["lstYears"] = Years();
+            ViewData["lstActors"] = Actors();
+            ViewData["lstDirectors"] = Directors();
+            ViewData["lstGenres"] = Genres();
             return View();
         }
-        //[HttpPost]
-        //public ActionResult Create(int hr, Int64 min, string lstMovCast, string mov_rel_country, string lstDirectors, string lstGenres, Models.movie obj)
-        //{
-        //    Service.movie postMovie;
-        //    var service = new Service.ServiceClient();
+        
+        [HttpPost]
+        public ActionResult Create(int hr, Int64 min, string lstMovCast, string mov_rel_country, string lstDirectors, string lstGenres, Models.movie obj)
+        {
+            MovieService.movie postMovie;
+            var service = new MovieService.ServiceClient();
 
-        //    var jsonMovCastText = JsonConvert.SerializeObject(lstMovCast);
-        //    var jsonMovCast = JsonConvert.DeserializeObject(jsonMovCastText);
-        //    List<movcast> listMovCast = JsonConvert.DeserializeObject<List<movcast>>(jsonMovCast.ToString());
-        //    Service.movie_cast movie_cast;
-        //    List<Service.movie_cast> lstMovieCast = new List<Service.movie_cast>();
-        //    foreach (var item in listMovCast)
-        //    {
-        //        movie_cast = new Service.movie_cast
-        //        {
-        //            mov_id = obj.mov_id,
-        //            act_id = service.GetActorByName(item.act_name),
-        //            role = item.role_name,
-        //        };
-        //        lstMovieCast.Add(movie_cast);
-        //    }
+            //Insert Movie
+            int convertHour = hr * 60;
+            postMovie = new MovieService.movie
+            {
+                mov_id = obj.mov_id,
+                mov_title = Regex.Replace(obj.mov_title, "[$&+,:;=?@#|'<>.^*()%!-]", " "),
+                mov_year = obj.mov_dt_rel.Substring(0, 4),
+                mov_time = (convertHour + min).ToString(),
+                mov_dt_rel = obj.mov_dt_rel.Substring(5),
+                mov_lang = obj.mov_lang,
+                mov_rel_country = mov_rel_country
+            };
 
-        //    Service.movie_direction movie_direction;
-        //    List<Service.movie_direction> lstMovDir = new List<Service.movie_direction>();
-        //    foreach (var item in lstDirectors.Split(','))
-        //    {
-        //        movie_direction = new Service.movie_direction
-        //        {
-        //            mov_id = obj.mov_id,
-        //            dir_id = service.GetDirectorByName(item),
-        //        };
-        //        lstMovDir.Add(movie_direction);
-        //    }
+            var result = service.InsertMovie(postMovie);
+            var insertedMovie = new Models.movie(result);
 
-        //    Service.movie_genres movie_genres;
-        //    List<Service.movie_genres> lstMovGen = new List<Service.movie_genres>();
-        //    foreach (var item in lstGenres.Split(','))
-        //    {
-        //        movie_genres = new Service.movie_genres
-        //        {
-        //            mov_id = obj.mov_id,
-        //            gen_id = service.GetGenreByName(item),
-        //        };
-        //        lstMovGen.Add(movie_genres);
-        //    }
+            //Insert Movie_cast
+            var jsonMovCastText = JsonConvert.SerializeObject(lstMovCast);
+            var jsonMovCast = JsonConvert.DeserializeObject(jsonMovCastText);
+            List<movcast> listMovCast = JsonConvert.DeserializeObject<List<movcast>>(jsonMovCast.ToString());
+            MovieService.movie_cast movie_cast;
+            foreach (var item in listMovCast)
+            {
+                movie_cast = new MovieService.movie_cast
+                {
+                    mov_id = insertedMovie.mov_id,
+                    act_id = service.GetActorByName(item.act_name),
+                    role = item.role_name,
+                };
+                service.InsertMovCast(movie_cast);
+            }
 
-        //    int convertHour = hr * 60;
+            //Insert Movie_direction
+            MovieService.movie_direction movie_direction;
+            foreach (var item in lstDirectors.Split(','))
+            {
+                movie_direction = new MovieService.movie_direction
+                {
+                    mov_id = insertedMovie.mov_id,
+                    dir_id = service.GetDirectorByName(item),
+                };
+                service.InsertMovDir(movie_direction);
+            }
 
-        //    postMovie = new Service.movie
-        //    {
-        //        mov_id = obj.mov_id,
-        //        mov_title = Regex.Replace(obj.mov_title, "[$&+,:;=?@#|'<>.^*()%!-]", " "),
-        //        mov_year = obj.mov_dt_rel.Substring(0, 4),
-        //        mov_time = (convertHour + min).ToString(),
-        //        mov_dt_rel = obj.mov_dt_rel.Substring(5),
-        //        mov_lang = obj.mov_lang,
-        //        mov_rel_country = mov_rel_country,
-        //        movie_cast = lstMovieCast,
-        //        movie_direction = lstMovDir,
-        //        movie_genres = lstMovGen
-        //    };
+            //Insert Movie_genres
+            MovieService.movie_genres movie_genres;
+            foreach (var item in lstGenres.Split(','))
+            {
+                movie_genres = new MovieService.movie_genres
+                {
+                    mov_id = insertedMovie.mov_id,
+                    gen_id = service.GetGenreByName(item),
+                };
+                service.InsertMovGen(movie_genres);
+            }
 
-        //    service.CreateMovie(postMovie);
-        //    TempData["createMovie"] = "Create Movie successfully";
-
-        //    return RedirectToAction("Read", "Movie", "Admin");
-        //}
+            if(result == null)
+            {
+                TempData["createMovie"] = "Something wrong in server";
+            }
+            TempData["createMovie"] = "Create successfully";
+            return RedirectToAction("Read", "Movie", "Admin");
+        }
 
         //[HttpPost]
         //public ActionResult Update(Models.movie obj)
@@ -153,7 +164,6 @@ namespace MovieFilterSp.Areas.Admin.Controllers
             }
             return hour;
         }
-
         public List<Int64> Minutes()
         {
             List<Int64> min = new List<Int64>();
@@ -172,77 +182,80 @@ namespace MovieFilterSp.Areas.Admin.Controllers
             }
             return years;
         }
-
         public List<country> Country()
         {
-            string countryText = System.IO.File.ReadAllText(@"C:\Aptech\SEM3\Web Service\Movie Filter\MovieFilterSp\Utils\countries.json");
+            string countryText = System.IO.File.ReadAllText(@"C:\Aptech\SEM3\Web Service\MovieFilter\MovieFilterSp\Utils\countries.json");
             string countryJson = JsonConvert.SerializeObject(countryText);
             var countriesText = JsonConvert.DeserializeObject(countryJson);
             List<country> countries = JsonConvert.DeserializeObject<List<country>>(countriesText.ToString());
             return countries;
         }
-
         public List<language> Language()
         {
-            string languageText = System.IO.File.ReadAllText(@"C:\Aptech\SEM3\Web Service\Movie Filter\MovieFilterSp\Utils\languages.json");
+            string languageText = System.IO.File.ReadAllText(@"C:\Aptech\SEM3\Web Service\MovieFilter\MovieFilterSp\Utils\languages.json");
             string languageJson = JsonConvert.SerializeObject(languageText);
             var languagesText = JsonConvert.DeserializeObject(languageJson);
             List<language> languages = JsonConvert.DeserializeObject<List<language>>(languagesText.ToString());
             return languages;
         }
 
-        //public List<Models.actor> Actors()
-        //{
-        //    var service = new Service.ServiceClient();
-        //    var lstService = service.GetAllActors();
+        public List<Models.actor> Actors()
+        {
+            var service = new MovieService.ServiceClient();
+            var lstService = service.GetAllActors();
 
-        //    List<Models.actor> lstActors = new List<Models.actor>();
-        //    foreach (var item in lstService)
-        //    {
-        //        Models.actor actor = new Models.actor(item);
-        //        lstActors.Add(actor);
-        //    }
+            List<Models.actor> lstActors = new List<Models.actor>();
+            foreach (var item in lstService)
+            {
+                Models.actor actor = new Models.actor(item);
+                lstActors.Add(actor);
+            }
 
-        //    return lstActors;
-        //}
+            return lstActors;
+        }
+        public List<Models.director> Directors()
+        {
+            var service = new MovieService.ServiceClient();
+            var lstService = service.GetAllDirectors();
 
-        //public List<Models.director> Directors()
-        //{
-        //    var service = new Service.ServiceClient();
-        //    var lstService = service.GetAllDirectors();
+            List<Models.director> lstDirectors = new List<Models.director>();
+            foreach (var item in lstService)
+            {
+                Models.director director = new Models.director(item);
+                lstDirectors.Add(director);
+            }
 
-        //    List<Models.director> lstDirectors = new List<Models.director>();
-        //    foreach (var item in lstService)
-        //    {
-        //        Models.director director = new Models.director(item);
-        //        lstDirectors.Add(director);
-        //    }
+            return lstDirectors;
+        }
+        public List<Models.genre> Genres()
+        {
+            var service = new MovieService.ServiceClient();
+            var lstGenreService = service.GetAllGenres();
+            var lstMovieService = service.GetAllMovies();
 
-        //    return lstDirectors;
-        //}
-        //public List<Models.genre> Genres()
-        //{
-        //    var service = new ServiceClient();
-        //    var lstService = service.GetAllGenres();
-        //    var jsonMovie = JsonConvert.DeserializeObject(service.GetAllMovies());
-        //    List<Models.movie> lstMovie = JsonConvert.DeserializeObject<List<Models.movie>>(jsonMovie.ToString());
+            List<Models.movie> lstMovie = new List<Models.movie>();
+            List<Models.genre> lstGenres = new List<Models.genre>();
 
-        //    List<Models.genre> lstGenres = new List<Models.genre>();
-        //    foreach (var item in lstService)
-        //    {
-        //        Models.genre genre = new Models.genre(item);
-        //        lstGenres.Add(genre);
-        //    }
+            foreach (var item in lstMovieService)
+            {
+                Models.movie movie = new Models.movie(item);
+                lstMovie.Add(movie);
+            }
+            foreach (var item in lstGenreService)
+            {
+                Models.genre genre = new Models.genre(item);
+                lstGenres.Add(genre);
+            }
 
-        //    foreach (var item in lstMovie)
-        //    {
-        //        foreach (var i in lstGenres)
-        //        {
-        //            i.movie_genres = item.movie_genres;
-        //        }
-        //    }
+            //foreach (var item in lstMovieService)
+            //{
+            //    foreach (var i in lstGenreService)
+            //    {
+            //        i.movie_genres = item.movie_genres;
+            //    }
+            //}
 
-        //    return lstGenres;
-        //}
+            return lstGenres;
+        }
     }
 }

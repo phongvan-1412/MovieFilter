@@ -2,11 +2,11 @@
 @{
     var countries = (List<MovieFilterSp.Models.country>)ViewData["lstCountries"];
     var languages = (List<MovieFilterSp.Models.language>)ViewData["lstLanguages"];
-    //var hours = (List<int>)ViewData["lstHour"];
-    //var minutes = (List<Int64>)ViewData["lstMinute"];
-    //var actors = (List<WebApplicationMVC.Models.actor>)ViewData["lstActors"];
-    //var directors = (List<WebApplicationMVC.Models.director>)ViewData["lstDirectors"];
-    //var genres = (List<WebApplicationMVC.Models.genre>)ViewData["lstGenres"];
+    var hours = (List<int>)ViewData["lstHour"];
+    var minutes = (List<Int64>)ViewData["lstMinute"];
+    var actors = (List<MovieFilterSp.Models.actor>)ViewData["lstActors"];
+    var directors = (List<MovieFilterSp.Models.director>)ViewData["lstDirectors"];
+    var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
 
 }
 <!-- Button trigger modal -->
@@ -40,20 +40,20 @@
                                 <div class="d-flex align-items-center me-5">
                                     <select name="hr" class="form-control me-2">
                                         <option value="0">0</option>
-                                        @*@foreach (var item in hours as List<int>)
+                                        @foreach (var item in hours as List<int>)
                                         {
                                             <option>@item</option>
-                                        }*@
+                                        }
                                     </select>
                                     <label class="form-label">hours</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
                                     <select name="min" class="form-control me-2">
-                                        @*@foreach (var item in minutes as List<Int64>)
+                                        @foreach (var item in minutes as List<Int64>)
                                         {
                                             <option>@item</option>
-                                        }*@
+                                        }
                                     </select>
                                     <label class="form-label">minutes</label>
                                 </div>
@@ -73,6 +73,7 @@
                         <div style="margin-right: 40px">
                             <label class="fw-bold me-3">Language</label>
                             <select id="selLanguage" name="mov_lang" placeholder="Select Language" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
+                                <option selected disabled>Select</option>
                                 @foreach (var item in languages as List<MovieFilterSp.Models.language>)
                                 {
                                     <option>@item.name</option>
@@ -96,24 +97,24 @@
 
 
                     <div class="form-group d-flex mb-3">
-                        <div style="margin-right: 20px">
+                        <div style="margin-right: 50px">
                             <label class="fw-bold me-3">Directors</label>
                             <select id="selDirectors" name="lstDirectors" multiple placeholder="Select Directors" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                @*@foreach (var item in directors as List<WebApplicationMVC.Models.director>)
+                                @foreach (var item in directors as List<MovieFilterSp.Models.director>)
                                 {
                                     <option>@item.dir_fullname</option>
-                                }*@
+                                }
                             </select>
                             <span asp-validation-for="mov_lang" class="text-danger"></span>
                         </div>
 
                         <div>
                             <label class="fw-bold me-3">Genre</label>
-                            <select id="selGenres" name="lstGenres" multiple placeholder="Select Genre" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                @*@foreach (var item in genres as List<WebApplicationMVC.Models.genre>)
+                            <select id="selGenres" name="lstGenres" multiple placeholder="Select Genre" data-search="true" data-silent-initial-value-set="true">
+                                @foreach (var item in genres as List<MovieFilterSp.Models.genre>)
                                 {
                                     <option>@item.gen_title</option>
-                                }*@
+                                }
                             </select>
                             <span asp-validation-for="mov_lang" class="text-danger"></span>
                         </div>
@@ -125,10 +126,10 @@
                         <div style="margin-right: 40px">
                             <label class="fw-bold me-3">Actors</label>
                             <select id="actor" name="actor" class="form-select" placeholder="Select Actor" data-search="true" data-silent-initial-value-set="true" style="width: 250px">
-                                @*@foreach (var item in actors as List<WebApplicationMVC.Models.actor>)
+                                @foreach (var item in actors as List<MovieFilterSp.Models.actor>)
                                 {
                                     <option>@item.act_fullname</option>
-                                }*@
+                                }
                             </select>
                         </div>
 
@@ -172,20 +173,22 @@
 <script type="text/javascript" src="~/Scripts/virtual-select.min.js"></script>
 <script type="text/javascript">
     VirtualSelect.init({
-        ele: '#selCountries'
+        ele: '#selCountries',
+        autoSelectFirstOption: false,
     });
 
     VirtualSelect.init({
         ele: '#selLanguage'
     });
 
-    //VirtualSelect.init({
-    //    ele: '#selDirectors'
-    //});
+    VirtualSelect.init({
+        ele: '#selDirectors'
+    });
 
-    //VirtualSelect.init({
-    //    ele: '#selGenres'
-    //});
+    VirtualSelect.init({
+        ele: '#selGenres',
+        maxWidth: "300px"
+    });
 
     document.getElementById("btnCreateMovie").addEventListener("click", function () {
         localStorage.removeItem("listMovCast");
