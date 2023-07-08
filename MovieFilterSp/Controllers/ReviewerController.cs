@@ -16,60 +16,52 @@ namespace MovieFilterSp.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Register(Models.reviewer reviewer)
-        //{
-        //    var service = new ServiceClient();
+        [HttpPost]
+        public ActionResult Register(Models.reviewer reviewer)
+        {
+            var service = new ServiceClient();
 
-        //    Service.reviewer postData = new Service.reviewer
-        //    {
-        //        rev_name = reviewer.rev_name,
-        //        rev_email = reviewer.rev_email,
-        //        rev_password = EncryptPassword(reviewer.rev_password),
-        //    };
+            MovieService.reviewer postData = new MovieService.reviewer
+            {
+                rev_name = reviewer.rev_name,
+                rev_email = reviewer.rev_email,
+                rev_password = EncryptPassword(reviewer.rev_password),
+            };
 
-        //    try
-        //    {
-        //        service.CreateReviewer(postData);
-        //        TempData["createReviewer"] = "Account registed";
-        //    }
-        //    catch (Exception)
-        //    {
-        //        TempData["createFlag"] = "Failed";
+            var result = service.InsertReviewer(postData);
+            TempData["createReviewer"] = result;
 
-        //    }
-
-        //    return RedirectToAction("Login", "Reviewer");
-        //}
+            return RedirectToAction("Login", "Reviewer");
+        }
 
         public ActionResult Login()
         {
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Login(Models.reviewer reviewer)
-        //{
-        //    var service = new ServiceClient();
-        //    Service.reviewer accountExist = service.GetReviewerByEmail(reviewer.rev_email);
-        //    if (accountExist == null || !DecryptPassword(accountExist.rev_password).Equals(reviewer.rev_password) || !accountExist.rev_email.Equals(reviewer.rev_email))
-        //    {
-        //        TempData["accountFailed"] = "Email or password is invalid. Please try again!";
-        //    }
-        //    else
-        //    {
-        //        TempData["accountVerified"] = "Log in successfully";
-        //        Session["account"] = accountExist;
-        //    }
+        [HttpPost]
+        public ActionResult Login(Models.reviewer reviewer)
+        {
+            var service = new ServiceClient();
+            MovieService.reviewer accountExist = service.GetReviewerByEmail(reviewer.rev_email);
+            if (accountExist == null || !DecryptPassword(accountExist.rev_password).Equals(reviewer.rev_password) || !accountExist.rev_email.Equals(reviewer.rev_email))
+            {
+                TempData["accountFailed"] = "Email or password is invalid. Please try again!";
+            }
+            else
+            {
+                TempData["accountVerified"] = "Log in successfully";
+                Session["account"] = accountExist;
+            }
 
-        //    return View();
-        //}
+            return View();
+        }
 
-        //public ActionResult Logout()
-        //{
-        //    Session["account"] = null;
-        //    return RedirectToAction("Index", "Movie");
-        //}
+        public ActionResult Logout()
+        {
+            Session["account"] = null;
+            return RedirectToAction("Index", "Movie");
+        }
 
         public static string EncryptPassword(string password)
         {

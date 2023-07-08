@@ -40,17 +40,16 @@ namespace MovieFilterSp.Areas.Admin.Controllers
             //        searchString = Regex.Replace(searchString, "[$&+,:;=?@#|'<>.^*()%!-]", " ");
             //    }
 
-            //var service = new MovieService.ServiceClient();
-            //var lstService = service.GetAllReviewers();
+            var service = new MovieService.ServiceClient();
+            var lstService = service.GetAllReviewers();
 
-            //List<reviewer> lstReviewers = new List<reviewer>();
-            //foreach (var item in lstService)
-            //{
-            //    reviewer reviewer = new reviewer(item);
-            //    lstReviewers.Add(reviewer);
-            //}
-            //return View(lstReviewers);
-            return View();
+            List<reviewer> lstReviewers = new List<reviewer>();
+            foreach (var item in lstService)
+            {
+                reviewer reviewer = new reviewer(item);
+                lstReviewers.Add(reviewer);
+            }
+            return View(lstReviewers);
         }
         public ActionResult Read()
         {
