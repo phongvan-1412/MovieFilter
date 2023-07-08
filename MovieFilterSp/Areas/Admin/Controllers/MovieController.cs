@@ -24,7 +24,7 @@ namespace MovieFilterSp.Areas.Admin.Controllers
             ViewData["lstActors"] = Actors();
             ViewData["lstDirectors"] = Directors();
             ViewData["lstGenres"] = Genres();
-            ViewData["lstMovies"] = Movies();
+            //ViewData["lstMovies"] = Movies();
 
             return View();
         }
@@ -259,21 +259,21 @@ namespace MovieFilterSp.Areas.Admin.Controllers
 
             return lstGenres;
         }
-        public List<Models.movie> Movies()
-        {
-            var service = new MovieService.ServiceClient();
-            var lstMovieService = service.GetAllMovies();
+        //public List<Models.movie> Movies()
+        //{
+        //    var service = new MovieService.ServiceClient();
+        //    var lstMovieService = service.GetAllMovies();
 
-            List<Models.movie> lstMovie = new List<Models.movie>();
+        //    List<Models.movie> lstMovie = new List<Models.movie>();
 
-            foreach (var item in lstMovieService)
-            {
-                Models.movie movie = new Models.movie(item);
-                lstMovie.Add(movie);
-            }
+        //    foreach (var item in lstMovieService)
+        //    {
+        //        Models.movie movie = new Models.movie(item, item.movie_cast, item.movie_direction, item.movie_genres);
+        //        lstMovie.Add(movie);
+        //    }
 
-            return lstMovie;
-        }
+        //    return lstMovie;
+        //}
 
     }
 }
