@@ -40,4 +40,5 @@ public class DbStore
     public static string InsertReviewer = "Sp_InsertReviewer";
     public static string GetReviewerById = "Sp_GetReviewerById";
     public static string GetAllReviewers = "Sp_GetReviewers";
+    public static string GetReviewerByEmail = "Sp_GetReviewerByEmail";
 }

@@ -350,6 +350,16 @@ public class Service : IService
         var lstReviewers = DbContext.Instance.Exec<List<reviewer>>(DbStore.GetReviewerById, param);
         return lstReviewers.FirstOrDefault();
     }
+    public reviewer GetReviewerByEmail(string email)
+    {
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@Email", email },
+        };
+
+        var lstReviewers = DbContext.Instance.Exec<List<reviewer>>(DbStore.GetReviewerByEmail, param);
+        return lstReviewers.FirstOrDefault();
+    }
     public string InsertReviewer(reviewer obj)
     {
         var param = new Dictionary<string, dynamic>
