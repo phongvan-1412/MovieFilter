@@ -771,10 +771,10 @@ namespace MovieFilterSp.MovieService {
         System.Threading.Tasks.Task<MovieFilterSp.MovieService.movie> GetMovieByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovie", ReplyAction="http://tempuri.org/IService/InsertMovieResponse")]
-        string InsertMovie(MovieFilterSp.MovieService.movie obj);
+        MovieFilterSp.MovieService.movie InsertMovie(MovieFilterSp.MovieService.movie obj);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovie", ReplyAction="http://tempuri.org/IService/InsertMovieResponse")]
-        System.Threading.Tasks.Task<string> InsertMovieAsync(MovieFilterSp.MovieService.movie obj);
+        System.Threading.Tasks.Task<MovieFilterSp.MovieService.movie> InsertMovieAsync(MovieFilterSp.MovieService.movie obj);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertMovCast", ReplyAction="http://tempuri.org/IService/InsertMovCastResponse")]
         string InsertMovCast(MovieFilterSp.MovieService.movie_cast obj);
@@ -958,11 +958,11 @@ namespace MovieFilterSp.MovieService {
             return base.Channel.GetMovieByIdAsync(id);
         }
         
-        public string InsertMovie(MovieFilterSp.MovieService.movie obj) {
+        public MovieFilterSp.MovieService.movie InsertMovie(MovieFilterSp.MovieService.movie obj) {
             return base.Channel.InsertMovie(obj);
         }
         
-        public System.Threading.Tasks.Task<string> InsertMovieAsync(MovieFilterSp.MovieService.movie obj) {
+        public System.Threading.Tasks.Task<MovieFilterSp.MovieService.movie> InsertMovieAsync(MovieFilterSp.MovieService.movie obj) {
             return base.Channel.InsertMovieAsync(obj);
         }
         
