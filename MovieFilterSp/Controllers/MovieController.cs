@@ -1,11 +1,7 @@
 ﻿using MovieFilterSp.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace MovieFilterSp.Controllers
 {
@@ -14,17 +10,19 @@ namespace MovieFilterSp.Controllers
         public ActionResult Index()
         {
             ViewData["lstYear"] = Year();
-            //ViewData["lstGenres"] = Genres();
-            //ViewData["lstMovies"] = Movies();
+            ViewData["lstGenres"] = Genres();
+            ViewData["lstMovies"] = Movies();
             return View();
         }
 
-        //public ActionResult Detail(int movId)
-        //{
-        //    var service = new Service.ServiceClient();
-        //    var mov = service.GetMovieById(movId);
-        //    return View(mov);
-        //}
+        public ActionResult Detail(int movId)
+        {
+            var service = new MovieService.ServiceClient();
+            var mov = service.GetMovieById(movId);
+
+            Models.movie movie = new Models.movie(mov, mov.movie_cast, mov.movie_direction, mov.movie_genres);
+            return View(movie);
+        }
 
         public List<Int64> Year()
         {
@@ -36,28 +34,35 @@ namespace MovieFilterSp.Controllers
             return year;
         }
 
-        //public List<genre> Genres()
-        //{
-        //    var service = new Service.ServiceClient();
-        //    var arrGenres = service.GetAllGenres();
+        public List<genre> Genres()
+        {
+            var service = new MovieService.ServiceClient();
+            var arrGenres = service.GetAllGenres();
 
-        //    List<genre> lstGenres = new List<genre>();
-        //    foreach (var item in arrGenres)
-        //    {
-        //        genre genre = new genre(item);
-        //        lstGenres.Add(genre);
-        //    }
+            List<genre> lstGenres = new List<genre>();
+            foreach (var item in arrGenres)
+            {
+                genre genre = new genre(item);
+                lstGenres.Add(genre);
+            }
 
-        //    return lstGenres;
-        //}
+            return lstGenres;
+        }
 
-        //public List<movie> Movies()
-        //{
-        //    var service = new Service.ServiceClient();
-        //    var lstService = JsonConvert.DeserializeObject(service.GetAllMovies());
-        //    List<movie> lstMovies = JsonConvert.DeserializeObject<List<movie>>(lstService.ToString());
+        public List<movie> Movies()
+        {
+            var service = new MovieService.ServiceClient();
+            var lstMovieService = service.GetAllMovies();
 
-        //    return lstMovies;
-        //}
+            List<Models.movie> lstMovie = new List<Models.movie>();
+
+            foreach (var item in lstMovieService)
+            {
+                Models.movie movie = new Models.movie(item, item.movie_cast, item.movie_direction, item.movie_genres);
+                lstMovie.Add(movie);
+            }
+
+            return lstMovie;
+        }
     }
 }

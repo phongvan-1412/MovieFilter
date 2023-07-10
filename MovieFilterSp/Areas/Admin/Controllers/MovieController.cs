@@ -14,8 +14,9 @@ namespace MovieFilterSp.Areas.Admin.Controllers
 {
     public class MovieController : Controller
     {
-        public ActionResult Read()
+        public ActionResult Read(string searchString, string order, string year, string actor, string director, string country, string lang, string rating, string hasRole, string xCountry, string firstName, string lastName, string reviewer, string actFName, string actLName, string genre, string duration, string directed)
         {
+
             ViewData["lstCountries"] = Country();
             ViewData["lstLanguages"] = Language();
             ViewData["lstHour"] = Hours();

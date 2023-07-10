@@ -3,8 +3,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var years = (List<Int64>)ViewData["lstYear"];
-    //var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
-    //var movies = (List<MovieFilterSp.Models.movie>)ViewData["lstMovies"];
+    var genres = (List<MovieFilterSp.Models.genre>)ViewData["lstGenres"];
+    var movies = (List<MovieFilterSp.Models.movie>)ViewData["lstMovies"];
 
 }
 
@@ -13,7 +13,7 @@
         <div>
             <div class="hero__items set-bg">
                 <div class="row d-flex align-items-center justify-content-center">
-                    <img src="~/img/hero/42_Salvation_4k.jpg" style="border-radius: 5px;" />
+                    <img src="~/img/hero/hero-1.jpg" style="border-radius: 5px;" />
                 </div>
             </div>
         </div>
@@ -49,10 +49,10 @@
                             <div class="search__genre me-5">
                                 <label class="form-label text-white me-2">Genre</label>
                                 <select name="mov_gen" class="form-select" style="width: 150px;">
-                                    @*@foreach (var item in genres as List<WebApplicationMVC.Models.genre>)
+                                    @foreach (var item in genres as List<MovieFilterSp.Models.genre>)
                                     {
                                         <option>@item.gen_title</option>
-                                    }*@
+                                    }
                                 </select>
                             </div>
 
@@ -77,10 +77,10 @@
                     </div>
                     <div class="row">
                         <div class="d-flex col-lg-4 col-md-6 col-sm-6 mb-3">
-                            @*@foreach (var item in movies)
+                            @foreach (var item in movies)
                             {
                                 <div class="d-block me-5">
-                                    <form action="Detail" method="get">
+                                    <form action="/Movie/Detail" method="get">
                                         <div class="product__item__pic set-bg mb-2" data-setbg="~/img/trending/trend-1.jpg">
                                             <img src="~/img/trending/trend-1.jpg" style="height: 325px; position: relative; border-radius: 5px;" />
                                         </div>
@@ -91,7 +91,7 @@
                                             {
                                                 <li class="me-3">
                                                     @{
-                                                        var service = new MovieFilterSp.Service.ServiceClient();
+                                                        var service = new MovieFilterSp.MovieService.ServiceClient();
                                                         var genre = service.GetGenreById(i.gen_id);
                                                     }@genre.gen_title
                                                 </li>
@@ -106,7 +106,7 @@
 
                                     </div>
                                 </div>
-                            }*@
+                            }
                         </div>
                     </div>
                 </div>

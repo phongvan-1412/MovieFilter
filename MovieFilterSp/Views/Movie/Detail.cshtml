@@ -10,14 +10,14 @@
                 <div class="breadcrumb__links">
                     <a href="./index.html"><i class="fa fa-home"></i> Home > </a>
                     <span class="text-muted">
-                        @*@foreach (var i in Model.movie_genres)
+                        @foreach (var i in Model.movie_genres)
                         {
-                            var service = new WebApplicationMVC.Service.ServiceClient();
+                            var service = new MovieFilterSp.MovieService.ServiceClient();
                             var lstGenres = service.GetGenreById(i.gen_id);
                             <span>
                                 @lstGenres.gen_title,
                             </span>
-                        }*@
+                        }
                     </span>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="col-lg-9">
                     <div class="anime__details__text">
                         <div class="anime__details__title">
-                            @*<h3>@Model.mov_title</h3>*@
+                            <h3>@Model.mov_title</h3>
                         </div>
                         <div class="anime__details__rating mb-3">
                             <div class="rating">
@@ -64,14 +64,14 @@
                                         <li><span class="text-primary">Status:</span> Airing</li>
                                         <li>
                                             <span class="text-primary">Genre:</span>
-                                            @*@foreach (var i in Model.movie_genres)
+                                            @foreach (var i in Model.movie_genres)
                                             {
-                                                var service = new WebApplicationMVC.Service.ServiceClient();
+                                                var service = new MovieFilterSp.MovieService.ServiceClient();
                                                 var lstGenres = service.GetGenreById(i.gen_id);
                                                 <span>
                                                     @lstGenres.gen_title,
                                                 </span>
-                                            }*@
+                                            }
                                         </li>
 
                                     </ul>
@@ -82,7 +82,7 @@
                                     <ul>
                                         <li><span class="text-primary">Scores:</span> 7.31 / 1,515</li>
                                         <li><span class="text-primary">Rating:</span> 8.5 / 161 times</li>
-                                        @*<li><span class="text-primary">Duration:</span> @Model.mov_time min</li>*@
+                                        <li><span class="text-primary">Duration:</span> @Model.mov_time min</li>
                                         <li><span class="text-primary">Quality:</span> HD</li>
                                         <li><span class="text-primary">Views:</span> 131,541</li>
                                     </ul>
