@@ -921,6 +921,48 @@ namespace MovieFilterSp.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMovies", ReplyAction="http://tempuri.org/IService/GetAllMoviesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.movie>> GetAllMoviesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/PostGetAllMovies", ReplyAction="http://tempuri.org/IService/PostGetAllMoviesResponse")]
+        System.Collections.Generic.List<MovieFilterSp.MovieService.movie> PostGetAllMovies(
+                    string searchString, 
+                    string order, 
+                    string year, 
+                    string actor, 
+                    string director, 
+                    string country, 
+                    string lang, 
+                    string rating, 
+                    string hasRole, 
+                    string xCountry, 
+                    string firstName, 
+                    string lastName, 
+                    string reviewer, 
+                    string actFName, 
+                    string actLName, 
+                    string genre, 
+                    string duration, 
+                    string directed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/PostGetAllMovies", ReplyAction="http://tempuri.org/IService/PostGetAllMoviesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.movie>> PostGetAllMoviesAsync(
+                    string searchString, 
+                    string order, 
+                    string year, 
+                    string actor, 
+                    string director, 
+                    string country, 
+                    string lang, 
+                    string rating, 
+                    string hasRole, 
+                    string xCountry, 
+                    string firstName, 
+                    string lastName, 
+                    string reviewer, 
+                    string actFName, 
+                    string actLName, 
+                    string genre, 
+                    string duration, 
+                    string directed);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMovieById", ReplyAction="http://tempuri.org/IService/GetMovieByIdResponse")]
         MovieFilterSp.MovieService.movie GetMovieById(int id);
         
@@ -1129,6 +1171,50 @@ namespace MovieFilterSp.MovieService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.movie>> GetAllMoviesAsync() {
             return base.Channel.GetAllMoviesAsync();
+        }
+        
+        public System.Collections.Generic.List<MovieFilterSp.MovieService.movie> PostGetAllMovies(
+                    string searchString, 
+                    string order, 
+                    string year, 
+                    string actor, 
+                    string director, 
+                    string country, 
+                    string lang, 
+                    string rating, 
+                    string hasRole, 
+                    string xCountry, 
+                    string firstName, 
+                    string lastName, 
+                    string reviewer, 
+                    string actFName, 
+                    string actLName, 
+                    string genre, 
+                    string duration, 
+                    string directed) {
+            return base.Channel.PostGetAllMovies(searchString, order, year, actor, director, country, lang, rating, hasRole, xCountry, firstName, lastName, reviewer, actFName, actLName, genre, duration, directed);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MovieFilterSp.MovieService.movie>> PostGetAllMoviesAsync(
+                    string searchString, 
+                    string order, 
+                    string year, 
+                    string actor, 
+                    string director, 
+                    string country, 
+                    string lang, 
+                    string rating, 
+                    string hasRole, 
+                    string xCountry, 
+                    string firstName, 
+                    string lastName, 
+                    string reviewer, 
+                    string actFName, 
+                    string actLName, 
+                    string genre, 
+                    string duration, 
+                    string directed) {
+            return base.Channel.PostGetAllMoviesAsync(searchString, order, year, actor, director, country, lang, rating, hasRole, xCountry, firstName, lastName, reviewer, actFName, actLName, genre, duration, directed);
         }
         
         public MovieFilterSp.MovieService.movie GetMovieById(int id) {

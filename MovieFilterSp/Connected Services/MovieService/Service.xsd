@@ -217,6 +217,37 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PostGetAllMovies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="order" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="director" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="country" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rating" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hasRole" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xCountry" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reviewer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actFName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actLName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="genre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="duration" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="directed" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostGetAllMoviesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="PostGetAllMoviesResult" nillable="true" type="q14:ArrayOfmovie" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetMovieById">
     <xs:complexType>
       <xs:sequence>
@@ -227,28 +258,28 @@
   <xs:element name="GetMovieByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetMovieByIdResult" nillable="true" type="q14:movie" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetMovieByIdResult" nillable="true" type="q15:movie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertMovie">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q15:movie" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q16:movie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertMovieResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="InsertMovieResult" nillable="true" type="q16:movie" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="InsertMovieResult" nillable="true" type="q17:movie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertMovCast">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q17:movie_cast" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q18:movie_cast" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -262,7 +293,7 @@
   <xs:element name="InsertMovDir">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q18:movie_direction" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q19:movie_direction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -276,7 +307,7 @@
   <xs:element name="InsertMovGen">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q19:movie_genres" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q20:movie_genres" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -295,7 +326,7 @@
   <xs:element name="GetAllReviewersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllReviewersResult" nillable="true" type="q20:ArrayOfreviewer" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllReviewersResult" nillable="true" type="q21:ArrayOfreviewer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -309,7 +340,7 @@
   <xs:element name="GetReviewerByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetReviewerByIdResult" nillable="true" type="q21:reviewer" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetReviewerByIdResult" nillable="true" type="q22:reviewer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -323,14 +354,14 @@
   <xs:element name="GetReviewerByEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetReviewerByEmailResult" nillable="true" type="q22:reviewer" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetReviewerByEmailResult" nillable="true" type="q23:reviewer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertReviewer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q23:reviewer" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obj" nillable="true" type="q24:reviewer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
