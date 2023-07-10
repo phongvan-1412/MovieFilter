@@ -27,6 +27,7 @@ public class DbStore
     //public static string UpdateMovie = "Sp_UpdateMovie";
     public static string GetMovieById = "Sp_GetMovieById";
     public static string GetAllMovies = "Sp_GetMovies";
+    public static string PostGetAllMovies = "Sp_PostGetMovies";
 
     public static string InsertMovCast = "Sp_InsertMovCast";
     public static string GetAllMovCasts = "Sp_GetMovCasts";

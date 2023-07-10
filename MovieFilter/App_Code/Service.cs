@@ -248,6 +248,35 @@ public class Service : IService
         }
         return lstMovies;
     }
+    public List<movie> PostGetAllMovies(string searchString, string order, string year, string actor, string director, string country, string lang,
+    string rating, string hasRole, string xCountry, string firstName, string lastName, string reviewer, string actFName, string actLName, string genre, string duration, string directed)
+    {
+
+        var param = new Dictionary<string, dynamic>
+        {
+            { "@searchBox", searchString },
+            { "@order", order },
+            { "@year", year },
+            { "@actor", actor },
+            { "@director", director },
+            { "@country", country },
+            { "@lang", lang },
+            { "@rating", rating },
+            { "@hasRole", hasRole },
+            { "@xCountry", xCountry },
+            { "@firstName", firstName },
+            { "@lastName", lastName },
+            { "@reviewer", reviewer },
+            { "@actFName", actFName },
+            { "@actLName", actLName },
+            { "@genre", genre },
+            { "@duration", duration },
+            { "@directed", directed }
+        };
+
+        var lstMovies = DbContext.Instance.Exec<List<movie>>(DbStore.PostGetAllMovies, param);
+        return lstMovies;
+    }
     public movie GetMovieById(int id)
     {
         var param = new Dictionary<string, dynamic>
@@ -256,6 +285,41 @@ public class Service : IService
         };
 
         var lstMovies = DbContext.Instance.Exec<List<movie>>(DbStore.GetMovieById, param);
+        var lstMovCasts = DbContext.Instance.Exec<List<movie_cast>>(DbStore.GetAllMovCasts);
+        var lstMovDirs = DbContext.Instance.Exec<List<movie_direction>>(DbStore.GetAllMovDirs);
+        var lstMovGens = DbContext.Instance.Exec<List<movie_genres>>(DbStore.GetAllMovGens);
+
+        foreach (var movie in lstMovies)
+        {
+            var lstMovCastTmp = new List<movie_cast>();
+            var lstMovDirTmp = new List<movie_direction>();
+            var lstMovGenTmp = new List<movie_genres>();
+
+            foreach (var movcast in lstMovCasts)
+            {
+                if (movie.mov_id == movcast.mov_id)
+                {
+                    lstMovCastTmp.Add(movcast);
+                }
+            }
+            foreach (var movdir in lstMovDirs)
+            {
+                if (movie.mov_id == movdir.mov_id)
+                {
+                    lstMovDirTmp.Add(movdir);
+                }
+            }
+            foreach (var movgen in lstMovGens)
+            {
+                if (movie.mov_id == movgen.mov_id)
+                {
+                    lstMovGenTmp.Add(movgen);
+                }
+            }
+            movie.movie_cast = lstMovCastTmp;
+            movie.movie_direction = lstMovDirTmp;
+            movie.movie_genres = lstMovGenTmp;
+        }
         return lstMovies.FirstOrDefault();
     }
     public movie InsertMovie(movie obj)
